@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الدرس الثاني: بعض الخصائص الفيزيائية والكيميائية للعناصر - الصف السادس الأساسي</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+      direction: rtl;
+      text-align: right;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      background: linear-gradient(180deg, #f5f3ff 0%, #eff6ff 55%, #ecfdf5 100%);
+      color: #0f172a;
+      line-height: 1.75;
+    }
+    .keffiyeh {
+      height: 12px;
+      width: 100%;
+      background: repeating-linear-gradient(90deg, #111827 0 10px, #ffffff 10px 16px, #111827 16px 20px, #ffffff 20px 26px);
+    }
+
+    .outer-frame {
+      position: relative;
+      max-width: 1180px;
+      margin: 14px auto 48px;
+      padding: 18px 28px 34px;
+      background: rgba(255, 255, 255, 0.87);
+      border: 2px solid #c4b5fd;
+      border-radius: 22px;
+      box-shadow: 0 10px 28px rgba(91, 33, 182, 0.12);
+    }
+
+    .flag {
+      position: absolute;
+      width: 38px;
+      height: 22px;
+      z-index: 20;
+      border: 1px solid rgba(15, 23, 42, 0.28);
+      border-radius: 3px;
+      overflow: hidden;
+      pointer-events: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    }
+    .flag .b { height: 33.33%; background: #000; }
+    .flag .w { height: 33.33%; background: #fff; }
+    .flag .g { height: 33.34%; background: #007a3d; }
+    .flag .t {
+      position: absolute; top: 0; left: 0; width: 0; height: 0;
+      border-top: 11px solid transparent; border-bottom: 11px solid transparent; border-left: 17px solid #ce1126;
+    }
+    .f-tl { top: 10px; left: 10px; }
+    .f-tr { top: 10px; right: 10px; }
+    .f-bl { bottom: 10px; left: 10px; }
+    .f-br { bottom: 10px; right: 10px; }
+
+    .wrap { max-width: 1100px; margin: 0 auto; padding-top: 14px; }
+
+    .hdr {
+      background: linear-gradient(135deg, #5b21b6 0%, #1d4ed8 55%, #0f766e 100%);
+      color: #fff;
+      border-radius: 18px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 20px rgba(76, 29, 149, 0.2);
+      border: 2px solid rgba(255,255,255,0.35);
+    }
+    .hdr-top {
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 8px; margin-bottom: 12px;
+      font-weight: 700; font-size: 0.92rem;
+    }
+
+    .info-line-1 {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+      background: rgba(255,255,255,0.18); padding: 10px 14px; border-radius: 12px;
+      font-size: 0.94rem; margin-bottom: 8px;
+    }
+    .info-line-2 {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+      background: rgba(15, 23, 42, 0.28); padding: 10px 14px; border-radius: 12px;
+      font-size: 0.94rem;
+    }
+    .section-group {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.16); padding: 3px 10px; border-radius: 9px;
+    }
+    .section-group select {
+      border: none; border-radius: 6px; padding: 4px 10px; font-family: inherit;
+      font-weight: 700; color: #0f172a; background: #fde68a; cursor: pointer;
+    }
+    .name-group {
+      display: inline-flex; align-items: center; gap: 6px; flex: 1 1 180px; max-width: 240px;
+    }
+    .name-group input[type="text"] {
+      border: none; border-radius: 8px; padding: 5px 10px; font-family: inherit;
+      width: 100%; min-width: 110px; color: #0f172a; background: #fff; font-weight: 600;
+    }
+
+    .toolbar {
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-bottom: 14px;
+    }
+    .btn {
+      border: 2px solid #6d28d9; background: #fff; color: #5b21b6;
+      padding: 8px 13px; border-radius: 11px; font-weight: 700; font-family: inherit;
+      cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.88rem; transition: 0.2s;
+    }
+    .btn.active, .btn:hover { background: #6d28d9; color: #fff; transform: translateY(-1px); }
+    .btn-dark { background: #1e293b; border-color: #1e293b; color: #fff; }
+    .btn-dark:hover { background: #0f172a; color: #fff; }
+    .btn-wa { background: #16a34a; border-color: #16a34a; color: #fff; }
+    .btn-wa:hover { background: #15803d; color: #fff; }
+    .btn-acc { background: #0f766e; border-color: #0f766e; color: #fff; }
+    .btn-acc:hover { background: #115e59; color: #fff; }
+    .btn-sum { background: #1d4ed8; border-color: #1d4ed8; color: #fff; }
+    .btn-sum.active, .btn-sum:hover { background: #1e40af; border-color: #1e40af; color: #fff; }
+    .btn-ans { background: #047857; border-color: #047857; color: #fff; }
+    .btn-ans.active, .btn-ans:hover { background: #065f46; border-color: #065f46; color: #fff; }
+
+    .box {
+      background: #fff; border: 2px solid #ddd6fe; border-radius: 16px;
+      padding: 18px; margin-bottom: 14px; box-shadow: 0 5px 15px rgba(109, 40, 217, 0.08);
+    }
+    .box h2 {
+      color: #5b21b6; font-size: 1.22rem; margin-bottom: 10px;
+      border-bottom: 2px solid #99f6e4; padding-bottom: 6px;
+    }
+    .axis-heading {
+      margin: 14px 0 10px;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: #fff;
+      background: linear-gradient(90deg, #4c1d95 0%, #1d4ed8 100%);
+      border-right: 6px solid #fde047;
+    }
+    .axis-heading.sec-chem {
+      background: linear-gradient(90deg, #0f766e 0%, #1e40af 100%);
+      border-right: 6px solid #6ee7b7;
+    }
+
+    .concept-banner {
+      background: linear-gradient(135deg, #f5f3ff 0%, #eff6ff 50%, #ecfdf5 100%);
+      border: 2px solid #8b5cf6;
+      border-right: 6px solid #0f766e;
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+    }
+    .concept-header {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;
+      margin-bottom: 6px;
+    }
+    .concept-title { font-weight: 800; color: #4c1d95; font-size: 1.05rem; }
+    .concept-text { color: #1e293b; font-size: 0.96rem; }
+    .concept-text.hidden-concept { display: none; }
+
+    .index-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 12px; margin-bottom: 10px;
+    }
+    .idx-card {
+      background: #f5f3ff; border: 2px solid #c4b5fd; border-radius: 14px; padding: 14px;
+      cursor: pointer; transition: 0.25s; display: flex; flex-direction: column; justify-content: space-between; gap: 6px;
+    }
+    .idx-card:nth-child(3n+2) { background: #eff6ff; border-color: #93c5fd; }
+    .idx-card:nth-child(3n) { background: #ecfdf5; border-color: #6ee7b7; }
+    .idx-card:hover { border-color: #0f766e; transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0,0,0,0.08); }
+    .idx-badge {
+      align-self: flex-start; background: #6d28d9; color: #fff; font-size: 0.8rem;
+      font-weight: 700; padding: 2px 10px; border-radius: 999px;
+    }
+    .idx-card:nth-child(3n+2) .idx-badge { background: #1d4ed8; }
+    .idx-card:nth-child(3n) .idx-badge { background: #0f766e; }
+    .idx-title { font-weight: 800; color: #0f172a; font-size: 1rem; }
+    .idx-sub { color: #334155; font-size: 0.86rem; }
+
+    .summary-hero {
+      background: linear-gradient(135deg, #4c1d95 0%, #1e40af 55%, #0f766e 100%);
+      color: #fff; border-radius: 16px; padding: 16px 18px; margin-bottom: 14px;
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px;
+    }
+    .summary-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-bottom: 16px;
+    }
+    .sum-card {
+      background: #f8fafc; border: 2px solid #cbd5e1; border-top: 5px solid #6d28d9;
+      border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 6px;
+    }
+    .sum-card:nth-child(3n+2) { border-top-color: #1d4ed8; background: #f8faff; }
+    .sum-card:nth-child(3n) { border-top-color: #0f766e; background: #f3fdf9; }
+    .sum-head { display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+    .sum-name { font-weight: 800; font-size: 1.02rem; color: #0f172a; }
+    .sum-prop { font-size: 0.9rem; color: #5b21b6; font-weight: 700; }
+    .sum-ex { font-size: 0.9rem; color: #334155; }
+
+    .crucial-box {
+      background: linear-gradient(135deg, #f5f3ff 0%, #ecfdf5 100%);
+      border: 2px solid #a78bfa; border-right: 6px solid #0f766e;
+      border-radius: 14px; padding: 14px 16px;
+    }
+    .crucial-box h3 { color: #4c1d95; margin-bottom: 8px; }
+    .crucial-list { list-style: none; display: grid; gap: 8px; }
+    .crucial-list li {
+      background: rgba(255,255,255,0.92); padding: 9px 12px; border-radius: 10px;
+      border: 1px solid #ddd6fe; font-size: 0.93rem;
+    }
+
+    .master-act-block {
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      border-right: 6px solid #047857;
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+    }
+    .master-act-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: #065f46;
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .grid-2 { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 16px; align-items: start; }
+    @media (max-width: 820px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .outer-frame { margin: 10px 8px 36px; padding: 14px 14px 28px; }
+      .flag { width: 30px; height: 18px; }
+      .flag .t {
+        border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-left: 14px solid #ce1126;
+      }
+    }
+
+    .stage {
+      background: linear-gradient(180deg, #f5f3ff, #ecfdf5); border: 2px dashed #8b5cf6;
+      border-radius: 14px; padding: 14px; display: flex; flex-direction: column; align-items: center;
+    }
+    .part-chips {
+      display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; justify-content: flex-start; width: 100%; margin-top: 8px;
+    }
+    .part-chip {
+      background: #fff; border: 2px solid #c4b5fd; border-radius: 10px;
+      padding: 6px 10px; font-weight: 700; font-size: 0.85rem; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px; transition: 0.2s; font-family: inherit;
+    }
+    .part-chip.selected, .part-chip:hover {
+      border-color: #0f766e; background: #dcfce7; color: #14532d;
+    }
+
+    .info { background: #f0fdf4; border: 2px solid #0d9488; border-radius: 14px; padding: 14px; margin-bottom: 12px; }
+    .info h3 { color: #0f766e; margin-bottom: 6px; }
+    .info p { margin-bottom: 10px; }
+
+    .practical-box {
+      background: #fff;
+      border: 2px solid #93c5fd;
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .practical-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .practical-title {
+      font-weight: 800;
+      color: #1e40af;
+      font-size: 1rem;
+    }
+    .sample-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .sample-btn {
+      border: 1.5px solid #3b82f6;
+      background: #eff6ff;
+      color: #1e3a8a;
+      padding: 5px 10px;
+      border-radius: 9px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .sample-btn.active, .sample-btn:hover {
+      background: #1d4ed8;
+      color: #fff;
+    }
+    .compare-strip {
+      margin-top: 10px;
+      background: #f8fafc;
+      border: 1.5px dashed #64748b;
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 0.85rem;
+      color: #0f172a;
+    }
+    .practical-note {
+      margin-top: 8px;
+      padding: 9px 11px;
+      border-radius: 10px;
+      background: #ecfdf5;
+      border-right: 4px solid #0f766e;
+      color: #0f172a;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .extra-examples-box {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #f5f3ff;
+      border: 1px solid #c4b5fd;
+      font-size: 0.88rem;
+      color: #1e293b;
+    }
+    .safety-alert {
+      margin-top: 10px;
+      padding: 9px 12px;
+      border-radius: 10px;
+      background: #fef2f2;
+      border: 1.5px solid #f87171;
+      border-right: 5px solid #dc2626;
+      color: #7f1d1d;
+      font-size: 0.87rem;
+      font-weight: 700;
+    }
+
+    .story {
+      background: linear-gradient(135deg, #1e1b4b 0%, #1d4ed8 55%, #0f766e 100%); color: #fff;
+      border-radius: 16px; padding: 16px; margin-bottom: 14px;
+    }
+    .chars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; }
+    @media (max-width: 600px) { .chars { grid-template-columns: 1fr; } }
+    .ch { background: rgba(255,255,255,0.14); border: 1.5px solid rgba(255,255,255,0.25); border-radius: 12px; padding: 10px; text-align: center; }
+    .ch.talk { background: rgba(253, 224, 71, 0.3); border-color: #fde047; transform: translateY(-3px); }
+    .say { background: rgba(15,23,42,0.45); border-right: 4px solid #fde047; padding: 12px; border-radius: 10px; margin-bottom: 12px; }
+
+    .sim-panel {
+      background: #f5f3ff; border: 2px solid #a78bfa; border-radius: 14px; padding: 14px; margin-top: 10px;
+    }
+
+    .q { background: #f8fafc; border-right: 4px solid #6d28d9; padding: 12px 14px; border-radius: 12px; margin-bottom: 12px; }
+    .q label { display: block; font-weight: 800; color: #0f172a; margin-bottom: 8px; }
+    .q input { width: 100%; padding: 8px 10px; border: 1.5px solid #94a3b8; border-radius: 8px; font-family: inherit; background: #fff; margin-bottom: 8px; }
+    .ans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      background: #dcfce7;
+      border: 1.5px solid #4ade80;
+      color: #14532d;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+    .hide-all-ans .ans { display: none; }
+
+    .print-meta { display: none; }
+
+    @media print {
+      body { background: #fff; }
+      .outer-frame { margin: 0; padding: 8px; border: none; box-shadow: none; background: #fff; }
+      .flag, .toolbar { display: none; }
+      .name-group input, .section-group select { display: none; }
+      .print-meta { display: inline; font-weight: 700; color: #fde68a; }
+    }
+  </style>
+</head>
+<body>
+  <div class="keffiyeh"></div>
+
+  <div class="outer-frame">
+    <div class="flag f-tl"><div class="b"></div><div class="w"></div><div class="g"></div><div class="t"></div></div>
+    <div class="flag f-tr"><div class="b"></div><div class="w"></div><div class="g"></div><div class="t"></div></div>
+    <div class="flag f-bl"><div class="b"></div><div class="w"></div><div class="g"></div><div class="t"></div></div>
+    <div class="flag f-br"><div class="b"></div><div class="w"></div><div class="g"></div><div class="t"></div></div>
+
+    <div class="wrap">
+      <header class="hdr">
+        <div class="hdr-top">
+          <span>دولة فلسطين • وزارة التربية والتعليم العالي</span>
+          <span>مديرية التربية والتعليم / طوباس</span>
+          <span>مدرسة ذكور طمون الأساسية العليا</span>
+        </div>
+
+        <div class="info-line-1">
+          <div><strong>المادة:</strong> العلوم والحياة</div>
+          <div><strong>الوحدة الثانية:</strong> تركيب المادة وخصائصها</div>
+          <div><strong>الدرس الثاني:</strong> بعض الخصائص الفيزيائية والكيميائية للعناصر (ص ٥١ – ٦٣)</div>
+        </div>
+
+        <div class="info-line-2">
+          <div><strong>الصف:</strong> السادس الأساسي</div>
+          <span class="section-group">
+            <label for="ssection"><strong>الشعبة:</strong></label>
+            <select id="ssection" aria-label="الشعبة" onchange="syncPrintFields()">
+              <option value="">--</option>
+              <option value="أ">أ</option>
+              <option value="ب">ب</option>
+              <option value="ج">ج</option>
+            </select>
+            <span id="printSec" class="print-meta">--</span>
+          </span>
+          <span class="name-group">
+            <label for="sname"><strong>الاسم:</strong></label>
+            <input id="sname" type="text" placeholder="" oninput="syncPrintFields()" />
+            <span id="printName" class="print-meta"></span>
+          </span>
+          <div><strong>المعلم:</strong> أ. أمين عبدالرازق</div>
+        </div>
+      </header>
+
+      <div class="toolbar">
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <button class="btn active" id="btnIndex" onclick="showIndex()">📚 لوحة الفهرس والأنشطة</button>
+          <button class="btn btn-sum" id="btnSummary" onclick="showSummary()">📋 ملخص الدرس الكامل</button>
+          <button class="btn btn-ans" id="btnMasterAnswers" onclick="showMasterAnswers()">💡 الإجابات العلمية النموذجية</button>
+          <button class="btn" id="subExploded" onclick="setSubTab('exploded')" style="display:none;">💥 العرض التفجيري والمختبر</button>
+          <button class="btn" id="subTalking" onclick="setSubTab('talking')" style="display:none;">🎬 حين تنطق الصفحات + المحاكاة</button>
+          <button class="btn" id="subWorksheet" onclick="setSubTab('worksheet')" style="display:none;">📝 ورقة العمل والأنشطة</button>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <a href="https://www.facebook.com/Tamsch2051" target="_blank" rel="noopener noreferrer" class="btn btn-dark">🏠 الصفحة الرئيسة</a>
+          <a href="https://whatsapp.com/channel/0029Vb9Rgz8Bfxo6P7KhQr3l" target="_blank" rel="noopener noreferrer" class="btn btn-wa">📢 قناة النادي العلمي</a>
+          <button class="btn btn-acc" onclick="syncPrintFields(); window.print()">🖨️ طباعة</button>
+        </div>
+      </div>
+
+      <section id="indexView" class="box">
+        <h2>الدرس الثاني: بعض الخصائص الفيزيائية والكيميائية للعناصر — ترتيب الأنشطة</h2>
+        <p style="margin-bottom:10px; color:#334155;">اختر النشاط بالترتيب المعتمد في ملف الكتاب المدرسي لاستعراض العرض التفجيري والمختبر والخطوات والملاحظات والإجابات العلمية، أو اضغط مباشرة على <strong>«💡 الإجابات العلمية النموذجية»</strong> في الشريط العلوي لعرض جميع الإجابات في مكان واحد:</p>
+
+        <div class="axis-heading">أولاً: الخصائص الفيزيائية (الطبيعية) للعناصر</div>
+        <div id="physGrid" class="index-grid"></div>
+
+        <div class="axis-heading sec-chem">ثانياً: الخصائص الكيميائية للعناصر (أنشطة ٨، ٩، ١٠ — كل نشاط بعرض ومختبر مستقل)</div>
+        <div id="chemGrid" class="index-grid"></div>
+      </section>
+
+      <section id="summaryView" class="box" style="display:none;">
+        <div class="summary-hero">
+          <div>
+            <h2 style="color:#fff; border:none; margin-bottom:4px;">📋 ملخص شامل ومفصّل لدرس: بعض الخصائص الفيزيائية والكيميائية للعناصر</h2>
+            <p style="color:#e0e7ff; font-size:0.93rem;">مراجعة شاملة لأنشطة الخصائص الفيزيائية (١ – ٧ واختبر نفسي) والخصائص الكيميائية (٨، ٩، ١٠)</p>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px;">
+            <button class="btn btn-acc" onclick="speakAllSummary()">🔊 نطق الملخص كامل</button>
+            <button class="btn btn-ans" onclick="showMasterAnswers()">💡 الإجابات العلمية النموذجية</button>
+            <button class="btn btn-dark" onclick="stopSp()">⏹️ إيقاف</button>
+            <button class="btn" onclick="showIndex()">↩️ الفهرس</button>
+          </div>
+        </div>
+
+        <div id="summaryGrid" class="summary-grid"></div>
+
+        <div class="crucial-box">
+          <h3>⚡ بيانات وأمثلة وتنبيهات من الكتاب المدرسي:</h3>
+          <ul class="crucial-list">
+            <li><strong>حالات العناصر في الظروف الطبيعية (ص ٥١):</strong> الصوديوم، الكبريت، الحديد، النحاس، الزئبق (سائل — يُنصح بعدم لمسه بالأيدي لأنه عنصر سام)، الأكسجين (غاز).</li>
+            <li><strong>درجات انصهار العناصر (ص ٥٨):</strong> الكبريت (١١٣ س°)، الألومنيوم (٦٦٠ س°)، النحاس (١٠٨٤ س°)، الحديد (١٥٣٨ س°)، الكربون (٣٥٤٧ س°).</li>
+            <li><strong>الخصائص الكيميائية (ص ٦١ – ٦٣):</strong> نشاط ٨ (الصدأ والمسامير وحماية العناصر من التآكل)، نشاط ٩ (النحاس اللامع والملح والخل أو حامض الليمون والتجفيف بالهواء)، نشاط ١٠ (٢٠ سم³ خل طعام وملعقتان صغيرتان مسحوق الخبيز / بايكربونات الصوديوم في بالون).</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="masterAnswersView" class="box" style="display:none;">
+        <div class="summary-hero">
+          <div>
+            <h2 style="color:#fff; border:none; margin-bottom:4px;">💡 الإجابات العلمية النموذجية الكاملة لجميع أنشطة الدرس (١ – ١٠ واختبر نفسي)</h2>
+            <p style="color:#e0e7ff; font-size:0.93rem;">جميع الأسئلة والإجابات العلمية النموذجية من الكتاب المدرسي (ص ٥١ – ٦٣) في صفحة واحدة واضحة ومباشرة</p>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px;">
+            <button class="btn btn-acc" id="toggleMasterAnsBtn" onclick="toggleMasterAnswersVisibility()">👁️ إخفاء الإجابات أثناء الاختبار</button>
+            <button class="btn btn-dark" onclick="stopSp()">⏹️ إيقاف النطق</button>
+            <button class="btn" onclick="showIndex()">↩️ الفهرس</button>
+          </div>
+        </div>
+
+        <div id="masterAnswersContainer"></div>
+      </section>
+
+      <section id="activityView" style="display:none;">
+        <div class="box">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-bottom:10px;">
+            <h2 id="actTitle" style="margin:0; border:none;"></h2>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <button class="btn btn-ans" onclick="showMasterAnswers()">💡 كل إجابات الدرس</button>
+              <button class="btn" onclick="showIndex()">↩️ العودة إلى ترتيب الأنشطة</button>
+            </div>
+          </div>
+
+          <div class="concept-banner">
+            <div class="concept-header">
+              <span class="concept-title" id="conceptLabel"></span>
+              <div style="display:flex; flex-wrap:wrap; gap:6px;">
+                <button class="btn" id="toggleConceptBtn" onclick="toggleConcept()">👁️ إخفاء المفهوم</button>
+                <button class="btn" onclick="speak(document.getElementById('conceptLabel').textContent + '. ' + document.getElementById('conceptText').textContent)">🔊 انطق المفهوم</button>
+              </div>
+            </div>
+            <p class="concept-text" id="conceptText"></p>
+          </div>
+
+          <div id="tabExploded">
+            <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:12px;">
+              <button class="btn btn-acc" id="expBtn" onclick="toggleExp()">🧩 تجميع الأجزاء</button>
+              <label style="font-weight:700;">تباعد أجزاء التفكيك: <input id="expSlider" type="range" min="0" max="100" value="70" oninput="applyGap(this.value)" /></label>
+            </div>
+            <div class="grid-2">
+              <div id="stage" class="stage"></div>
+              <div>
+                <div class="info">
+                  <h3 id="iTitle"></h3>
+                  <p id="iDesc"></p>
+                  <button class="btn" onclick="speak(document.getElementById('iTitle').textContent + '. ' + document.getElementById('iDesc').textContent)">🔊 انطق الشرح</button>
+                </div>
+
+                <div class="practical-box">
+                  <div class="practical-head">
+                    <span class="practical-title" id="pracTitle">🔬 مختبر النشاط العملي</span>
+                    <button class="btn btn-acc" style="padding:5px 10px; font-size:0.82rem;" onclick="recordComparison()">📌 تثبيت للمقارنة</button>
+                  </div>
+                  <div id="sampleBar" class="sample-bar"></div>
+                  <div id="pracSvgArea"></div>
+                  <div class="practical-note" id="pracNote"></div>
+                  <div id="extraExamplesBox" class="extra-examples-box"></div>
+                  <div id="safetyAlertBox" class="safety-alert" style="display:none;"></div>
+                  <div class="compare-strip" id="compareStrip">اختر خطوة أو عينة ثم اضغط «تثبيت للمقارنة» لمقارنة نتيجتها مع خطوة أو عينة أخرى.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="tabTalking" style="display:none;">
+            <div class="story">
+              <div id="scTitle" style="font-weight:700; color:#fde047;"></div>
+              <div class="chars">
+                <div id="c1" class="ch"><div id="ci1" style="font-size:1.8rem;"></div><strong id="cn1"></strong></div>
+                <div id="c2" class="ch"><div id="ci2" style="font-size:1.8rem;"></div><strong id="cn2"></strong></div>
+                <div id="c3" class="ch"><div id="ci3" style="font-size:1.8rem;"></div><strong id="cn3"></strong></div>
+              </div>
+              <div id="scSay" class="say"></div>
+              <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                <button class="btn btn-acc" onclick="playSc()">▶️ نطق المشهد</button>
+                <button class="btn" onclick="stepSc(-1)">⏮️ السابق</button>
+                <button class="btn" onclick="stepSc(1)">⏭️ التالي</button>
+                <button class="btn btn-dark" onclick="stopSp()">⏹️ إيقاف</button>
+              </div>
+            </div>
+
+            <div class="sim-panel">
+              <h3 style="color:#4c1d95; margin-bottom:8px;">محاكاة وأمثلة النشاط من الكتاب</h3>
+              <div id="simButtons" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px;"></div>
+              <div id="simOutput" class="q" style="margin:0;"></div>
+            </div>
+          </div>
+
+          <div id="tabWorksheet" style="display:none;">
+            <div id="wsContainer">
+              <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-bottom:12px;">
+                <h3 style="color:#5b21b6;">أسئلة النشاط والإجابات العلمية النموذجية</h3>
+                <button class="btn btn-acc" id="toggleAllAnsBtn" onclick="toggleAnswersVisibility()">👁️ إخفاء الإجابات أثناء الاختبار</button>
+              </div>
+              <div id="wsQuestions"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="keffiyeh"></div>
+
+  <script>
+    const summaryCards = [
+      { icon: "🧱", name: "نشاط ١: حالة العنصر في الظروف الطبيعية (ص ٥١)", prop: "صلبة: الصوديوم، الكبريت، الحديد، النحاس — سائلة: الزئبق — غازية: الأكسجين", ex: "توجد العناصر في الظروف الطبيعية في الحالات الصلبة أو السائلة أو الغازية (مع عدم لمس الزئبق بالأيدي لأنه عنصر سام)." },
+      { icon: "✨", name: "نشاط ٢: ليس كل ما يلمع ذهباً (ص ٥٢)", prop: "حديد، نحاس، ألومنيوم، كربون (جرافيت)، كبريت + ورق الصنفرة (ورق الزجاج)", ex: "تنظيف السطح بورقة الصنفرة يُظهر أن بعض العناصر لها لمعان وبريق وأخرى ليس لها لمعان وبريق." },
+      { icon: "🔨", name: "نشاط ٣: طرق وسحب وثني (ص ٥٣ – ٥٥)", prop: "قصة الحدّاد + سلك نحاس، سلك ألومنيوم، قضيب كربون (جرافيت)، قطع كبريت، مطرقة", ex: "الحديد والنحاس والألومنيوم قابلة للطرق والسحب والثني، بينما الكبريت والكربون غير قابلين للطرق والسحب والثني." },
+      { icon: "🔥", name: "نشاط ٤: توصيل الحرارة (ص ٥٦)", prop: "قضيب حديد، قضيب نحاس، قضيب كربون (جرافيت)، بذور دوار الشمس، شمع، ماء ساخن", ex: "تنتقل الحرارة في الموصلات الجيدة وتذيب الشمع فتسقط بذور دوار الشمس مقارنة ببقية القضبان." },
+      { icon: "⚡", name: "نشاط ٥: توصيل الكهرباء (ص ٥٧)", prop: "مسمار حديد، سلك نحاس، ورق ألومنيوم، قضيب كربون (جرافيت)، قطع كبريت، بطارية، مصباح، أسلاك توصيل", ex: "تُختبر العناصر بين الطرفين (أ، ب) في الدارة الكهربائية لتصنيفها إلى جيدة التوصيل وذات توصيل رديء." },
+      { icon: "🌡️", name: "نشاط ٦: القابلية للانصهار (ص ٥٨ – ٥٩)", prop: "الكبريت ١١٣، الألومنيوم ٦٦٠، النحاس ١٠٨٤، الحديد ١٥٣٨، الكربون ٣٥٤٧ س°", ex: "تسخين الكبريت في أنبوب اختبار ومسمار الحديد بملقط خشبي على لهب بنسن (مع الحذر من الغاز السام ومناقشة الخردة في فلسطين)." },
+      { icon: "🧲", name: "نشاط ٧: التمغنط واختبر نفسي (ص ٥٩ – ٦٠)", prop: "قضبان ألومنيوم، مسمار حديد، قضيب كربون (جرافيت)، سلك نحاس، مغناطيس، برادة حديد", ex: "دلك العناصر بالمغناطيس باتجاه واحد دون العكس لمعرفة القابلة للتمغنط التي تجذب برادة الحديد، ثم إكمال خريطة اختبر نفسي." },
+      { icon: "⛓️", name: "نشاط ٨: تكوين مواد جديدة (مركبات) (ص ٦١ – ٦٢)", prop: "الصدأ والمغناطيس + تجربة المسامير الثلاثة في الأنابيب والماء + حماية العناصر من التآكل", ex: "ينتج صدأ الحديد عن اتحاد الحديد مع الأكسجين في جو رطب؛ والصدأ مادة جديدة تختلف في خصائصها عن الحديد." },
+      { icon: "🪙", name: "نشاط ٩: النحاس اللامع (ص ٦٢)", prop: "قطعة أو عملة نقدية نحاسية تغيّر لونها + مخلوط الملح والخل أو حامض الليمون + تجفيف في الهواء", ex: "وضع العملة النحاسية في المحلول ثم إخراجها وتجفيفها في الهواء لمراقبة التغيرات التي حدثت." },
+      { icon: "🎈", name: "نشاط ١٠: الخل ومسحوق الخبيز (ص ٦٣)", prop: "٢٠ سم³ خل طعام في القارورة + ملعقتان صغيرتان مسحوق خبيز (بايكربونات الصوديوم) في بالون", ex: "تثبيت البالون وإسقاط المسحوق تدريجياً؛ تتغير صفات المادة الناتجة عن المواد الداخلة والتغيرات كيميائية." }
+    ];
+
+    const sampleSets = {
+      state: [
+        { name: "الصوديوم / الكبريت / الحديد / النحاس (صلبة)", state: "solid", kind: "عناصر صلبة في الظروف الطبيعية", color: "#7c3aed", detail: "توجد في الحالة الصلبة في الظروف الطبيعية ولها شكل وحجم ثابتان." },
+        { name: "الزئبق (سائل)", state: "liquid", kind: "عنصر سائل في الظروف الطبيعية", color: "#0284c7", detail: "الزئبق سائل في الظروف الطبيعية؛ ويُنصح بعدم لمسه بالأيدي لأنه عنصر سام." },
+        { name: "الأكسجين (غاز)", state: "gas", kind: "عنصر غازي في الظروف الطبيعية", color: "#0d9488", detail: "الأكسجين غاز في الظروف الطبيعية ينتشر ويشغل الحيز الموجود فيه." }
+      ],
+      luster: [
+        { name: "الحديد / النحاس / الألومنيوم", mode: "shiny", kind: "عناصر لها لمعان وبريق بعد الصنفرة", color: "#eab308", detail: "يظهر لها لمعان وبريق واضح عند تنظيف سطحها بورقة الصنفرة (ورق الزجاج)." },
+        { name: "الكبريت / الكربون (جرافيت)", mode: "dull", kind: "تختلف في مظهرها وبريقها عن الفلزات اللامعة", color: "#64748b", detail: "تُختبر بعد تنظيف السطح بورقة الصنفرة، ولا نكتفي باللمعان وحده للحكم على العناصر." }
+      ],
+      malleable: [
+        { name: "الحديد / سلك النحاس / سلك الألومنيوم", mode: "bend", kind: "عناصر قابلة للطرق والسحب والثني", color: "#2563eb", detail: "تتشكل بالطرق والسحب والثني (كما في عمل الحدّاد وتشكيل أسلاك النحاس وورق الألومنيوم)." },
+        { name: "قطع الكبريت / قضيب الكربون (جرافيت)", mode: "brittle", kind: "عناصر غير قابلة للطرق والسحب والثني", color: "#ca8a04", detail: "تتفتت أو تتكسر عند الطرق والثني ولا تُسحب إلى أسلاك." }
+      ],
+      heat: [
+        { name: "قضيب النحاس", heat: 95, kind: "موصل جيد للحرارة (يذيب الشمع بسرعة)", color: "#ea580c", detail: "تنتقل الحرارة من الماء الساخن عبر قضيب النحاس بسرعة فينصهر الشمع وتسقط بذور دوار الشمس." },
+        { name: "قضيب الحديد", heat: 78, kind: "موصل جيد للحرارة", color: "#64748b", detail: "تنتقل الحرارة من الماء الساخن عبر قضيب الحديد بوضوح." },
+        { name: "قضيب الكربون (جرافيت)", heat: 25, kind: "انتقال الحرارة فيه أبطأ من النحاس والحديد", color: "#334155", detail: "مقارنة مع قضيب النحاس وقضيب الحديد في حوض الماء الساخن." }
+      ],
+      electric: [
+        { name: "مسمار حديد / سلك نحاس / ورق ألومنيوم", cond: true, kind: "جيدة التوصيل للكهرباء بين (أ، ب)", color: "#ea580c", detail: "عند وضعها بين الطرفين (أ، ب) في الدارة الكهربائية يمر التيار وتضيء الدائرة." },
+        { name: "قطع كبريت", cond: false, kind: "رديئة التوصيل للكهرباء بين (أ، ب)", color: "#eab308", detail: "عند وضع قطع الكبريت بين الطرفين (أ، ب) تُصنّف ضمن العناصر رديئة التوصيل للكهرباء." },
+        { name: "قضيب كربون (جرافيت)", cond: true, kind: "الكربون (جرافيت) موصل للكهرباء بين (أ، ب)", color: "#334155", detail: "قضيب الكربون (الجرافيت) يوصل التيار الكهربائي بين الطرفين (أ، ب)." }
+      ],
+      melting: [
+        { name: "الكبريت (١١٣ س°)", temp: 113, barPct: 12, kind: "ينصهر الكبريت أولاً (١١٣ س°) عند التسخين على لهب بنسن", color: "#eab308", detail: "ينصهر الكبريت عند ١١٣ س° قبل انصهار الحديد (١٥٣٨ س°)؛ ويُنبه الكتاب للتهوية والنظارات والقفازات بسبب انطلاق غاز سام." },
+        { name: "الألومنيوم (٦٦٠ س°)", temp: 660, barPct: 26, kind: "درجة انصهار الألومنيوم (٦٦٠ س°) — أقل من ٨٠٠ س° فيكون سائلاً", color: "#64748b", detail: "درجة انصهار الألومنيوم ٦٦٠ س°، وعند درجة حرارة ٨٠٠ س° يكون الألومنيوم في الحالة السائلة." },
+        { name: "النحاس (١٠٨٤ س°)", temp: 1084, barPct: 40, kind: "درجة انصهار النحاس (١٠٨٤ س°)", color: "#ea580c", detail: "ينصهر النحاس عند ١٠٨٤ س° وفق الرسم البياني في صفحة ٥٨." },
+        { name: "الحديد (١٥٣٨ س°)", temp: 1538, barPct: 55, kind: "درجة انصهار الحديد (١٥٣٨ س°) — لا ينصهر بلهب بنسن العادي سريعاً", color: "#475569", detail: "درجة انصهار الحديد ١٥٣٨ س° وهي أعلى بكثير من درجة انصهار الكبريت (١١٣ س°)." },
+        { name: "الكربون (٣٥٤٧ س°)", temp: 3547, barPct: 92, kind: "أعلى درجة انصهار في الرسم البياني (٣٥٤٧ س°)", color: "#be185d", detail: "للكربون أعلى درجة انصهار في الرسم البياني (٣٥٤٧ س°)." }
+      ],
+      magnetism: [
+        { name: "مسمار حديد", attr: true, kind: "قابل للتمغنط (يجذب برادة الحديد)", color: "#64748b", detail: "بعد دلك مسمار الحديد بالمغناطيس باتجاه واحد دون العكس يصبح قابلاً للتمغنط ويجذب برادة الحديد." },
+        { name: "قضبان ألومنيوم / سلك نحاس / كربون (جرافيت)", attr: false, kind: "غير قابلة للتمغنط (لا تجذب برادة الحديد)", color: "#ea580c", detail: "لا تجذب برادة الحديد بعد الدلك بالمغناطيس." }
+      ],
+      act8_rust: [
+        { name: "١. صدأ الحديد والمغناطيس (ص ٦١)", stage: "rust_mag", kind: "الصدأ مادة جديدة تختلف في خصائصها عن الحديد", color: "#b45309", detail: "نجمع الصدأ باستخدام قفازات سميكة ونقرب المغناطيس؛ الصدأ يختلف في خصائصه عن الحديد والصدأ تغير كيميائي." },
+        { name: "٢. المسامير الثلاثة والأنابيب والماء (ص ٦٢)", stage: "rust_tubes", kind: "اتحاد الحديد مع الأكسجين في جو رطب يكوّن الصدأ", color: "#1d4ed8", detail: "نُحضر ثلاثة مسامير نظيفة وثلاثة أنابيب اختبار وماء ونتركها في الهواء ليلة أو أكثر لتسجيل الملاحظات وتفسيرها." },
+        { name: "٣. حماية العناصر من التآكل (ص ٦٢)", stage: "rust_protect", kind: "حماية العناصر من التآكل عند تعرضها للهواء الجوي", color: "#0f766e", detail: "نفكر في حماية العناصر كالحديد من التآكل بعزلها عن الهواء والرطوبة كالطلاء أو التزييت أو التغليف." }
+      ],
+      act9_copper: [
+        { name: "١. قطعة أو عملة نحاسية تغيّر لونها (ص ٦٢)", stage: "cop_start", kind: "قطعة أو عملة نحاسية تغيّر لونها مع الزمن", color: "#b45309", detail: "نُحضر قطعة نحاسية أو عملة نقدية نحاسية تغيّر لونها تمهيداً لوضعها في المحلول وملاحظة التغير الكيميائي." },
+        { name: "٢. وضعها في الملح والخل أو حامض الليمون", stage: "cop_bath", kind: "تفاعل في كأس به مخلوط الملح والخل أو حامض الليمون", color: "#ea580c", detail: "نضع العملة النحاسية في كأس به مخلوط الملح والخل أو حامض الليمون ونسجل الملاحظات وما حدث للعملة." },
+        { name: "٣. إخراجها وتجفيفها في الهواء (ص ٦٢)", stage: "cop_dry", kind: "إخراج العملة وتجفيفها في الهواء ومراقبة التغيرات", color: "#0f766e", detail: "نُخرج العملة النحاسية ونجففها في الهواء ونلاحظ إن حدثت تغيرات أخرى وكيف عرفنا ذلك." }
+      ],
+      act10_vinegar: [
+        { name: "١. ٢٠ سم³ خل طعام في القارورة (ص ٦٣)", stage: "vin_flask", kind: "وضع ٢٠ سم³ من خل الطعام في القارورة", color: "#0284c7", detail: "نضع ٢٠ سم³ من خل الطعام في القارورة الفارغة ونجهز الأدوات بدقة." },
+        { name: "٢. ملعقتان صغيرتان مسحوق خبيز في البالون", stage: "vin_balloon", kind: "مسحوق الخبيز (بايكربونات الصوديوم) في بالون على الفوهة", color: "#7c3aed", detail: "نضع ملعقتين صغيرتين من مسحوق الخبيز (بايكربونات الصوديوم) في بالون ونثبته على فوهة القارورة." },
+        { name: "٣. إسقاط المسحوق وتغير الصفات (ص ٦٣)", stage: "vin_react", kind: "تغيرت صفات المادة الناتجة — تغيرات كيميائية", color: "#0f766e", detail: "نرفع البالون تدريجياً ليسقط المسحوق داخل القارورة؛ تتغير صفات المادة الناتجة عن المواد الداخلة والتغيرات كيميائية." }
+      ]
+    };
+
+    const pageExamplesText = {
+      state: "عناصر النشاط ١ (ص ٥١): الصوديوم، الكبريت، الزئبق، الأكسجين، الحديد، النحاس — تصنف إلى صلبة وسائلة وغازية.",
+      luster: "عناصر وأدوات النشاط ٢ (ص ٥٢): حديد، نحاس، ألومنيوم، كربون (جرافيت)، كبريت + ورق الصنفرة (ورق الزجاج).",
+      malleable: "عناصر وأدوات النشاط ٣ (ص ٥٣–٥٥): قصة الحدّاد، ثم سلك نحاس، سلك ألومنيوم، قضيب كربون (جرافيت)، قطع كبريت، مطرقة + تشكيل أسلاك النحاس وورق الألومنيوم.",
+      heat: "عناصر وأدوات النشاط ٤ (ص ٥٦): قضيب حديد، قضيب نحاس، قضيب كربون (جرافيت)، بذور دوار الشمس، شمع، وعاء به ماء ساخن.",
+      electric: "عناصر وأدوات النشاط ٥ (ص ٥٧): مسمار حديد، سلك نحاس، ورق ألومنيوم، قضيب كربون (جرافيت)، قطع كبريت، بطارية، مصباح كهربائي، أسلاك توصيل بين (أ، ب).",
+      melting: "الرسم البياني (ص ٥٨): الكبريت ١١٣، الألومنيوم ٦٦٠، النحاس ١٠٨٤، الحديد ١٥٣٨، الكربون ٣٥٤٧ س° — والتجربة على لهب بنسن مع مناقشة الخردة في فلسطين.",
+      magnetism: "عناصر وأدوات النشاط ٧ (ص ٥٩–٦٠): قضبان ألومنيوم، مسمار حديد، قضيب كربون (جرافيت)، سلك نحاس، مغناطيس، برادة حديد + خريطة اختبر نفسي.",
+      act8_rust: "نشاط ٨ (ص ٦١–٦٢): تأمل صور الصدأ وتقريب المغناطيس، وتجربة المسامير الثلاثة والأنابيب والماء في الهواء ليلة أو أكثر، وحماية العناصر من التآكل.",
+      act9_copper: "نشاط ٩ (ص ٦٢): قطعة أو عملة نقدية نحاسية تغيّر لونها، وضعها في كأس به مخلوط الملح والخل أو حامض الليمون، ثم إخراجها وتجفيفها في الهواء.",
+      act10_vinegar: "نشاط ١٠ (ص ٦٣): ٢٠ سم³ خل طعام في القارورة + ملعقتان صغيرتان مسحوق خبيز (بايكربونات الصوديوم) في بالون يُرفع تدريجياً ليسقط داخل القارورة."
+    };
+
+    const safetyAlerts = {
+      state: "⚠️ انتبه (ص ٥١): يُنصح بعدم لمس الزئبق بالأيدي لأنه عنصر سام.",
+      melting: "⚠️ انتبه (ص ٥٨): يجب تهوية المكان واستخدام النظارات الواقية والقفازات بسبب انطلاق غاز سام.",
+      act8_rust: "⚠️ انتبه (ص ٦١): يُنصح باستخدام القفازات السميكة عند جمع الصدأ تجنباً لحدوث التسمم."
+    };
+
+    function createAct(id, section, badge, title, sub, conceptTitle, conceptText, parts, chars, scenes, sims, questions) {
+      return { id, section, badge, title, sub, conceptTitle, conceptText, parts, chars, scenes, sims, questions };
+    }
+
+    const activities = [
+      createAct("act1", "phys", "نشاط ١ — صفحة ٥١", "نشاط ١: حالة العنصر في الظروف الطبيعية (صفحة ٥١)", "تصنيف الصوديوم والكبريت والزئبق والأكسجين والحديد والنحاس إلى صلبة وسائلة وغازية", "حالة العنصر في الظروف الطبيعية (صفحة ٥١)", "توجد العناصر في الظروف الطبيعية في حالات فيزيائية: صلبة (كالصوديوم والكبريت والحديد والنحاس)، وسائلة (كالزئبق)، وغازية (كالأكسجين).", [
+        { t: "الجزء ١", i: "🧱", n: "العناصر الصلبة (ص ٥١)", d: "الصوديوم، الكبريت، الحديد، النحاس — توجد في الحالة الصلبة في الظروف الطبيعية.", lab: "state", defaultSample: 0 },
+        { t: "الجزء ٢", i: "💧", n: "العنصر السائل: الزئبق (ص ٥١)", d: "الزئبق سائل في الظروف الطبيعية؛ ويُنصح بعدم لمسه بالأيدي لأنه عنصر سام.", lab: "state", defaultSample: 1 },
+        { t: "الجزء ٣", i: "💨", n: "العنصر الغازي: الأكسجين (ص ٥١)", d: "الأكسجين غاز في الظروف الطبيعية.", lab: "state", defaultSample: 2 }
+      ], [
+        { i: "🧱", n: "الصلبة" }, { i: "💧", n: "السائلة" }, { i: "💨", n: "الغازية" }
+      ], [
+        { t: "المشهد ١ (نشاط ١ - ص ٥١)", c: "c1", s: "تقول الحالة الصلبة: الصوديوم والكبريت والحديد والنحاس عناصر صلبة في الظروف الطبيعية." },
+        { t: "المشهد ٢ (نشاط ١ - ص ٥١)", c: "c2", s: "يقول الزئبق: أنا عنصر سائل، ويُنصح بعدم لمسي بالأيدي لأنني عنصر سام." },
+        { t: "المشهد ٣ (نشاط ١ - ص ٥١)", c: "c3", s: "يقول الأكسجين: أنا عنصر غازي في الظروف الطبيعية." }
+      ], [
+        { label: "تصنيف عناصر النشاط ١ (ص ٥١)", out: "صلب: الصوديوم، الكبريت، الحديد، النحاس — سائل: الزئبق — غاز: الأكسجين." }
+      ], [
+        { q: "١. صنّف العناصر الواردة في نشاط (١) (ص ٥١): الصوديوم، الكبريت، الزئبق، الأكسجين، الحديد، النحاس حسب حالتها الفيزيائية في الظروف الطبيعية:", a: "الإجابة العلمية: العناصر الصلبة: الصوديوم، الكبريت، الحديد، النحاس؛ العنصر السائل: الزئبق؛ العنصر الغازي: الأكسجين." },
+        { q: "٢. لماذا يُنصح بعدم لمس الزئبق بالأيدي أثناء التعامل معه (ص ٥١)؟", a: "الإجابة العلمية: لأن الزئبق عنصر سائل سام يشكل خطراً صحياً عند ملامسته للجلد أو استنشاق أبخرته." },
+        { q: "٣. ما الاستنتاج العلمي من تنوّع حالات العناصر في الظروف الطبيعية (ص ٥١)؟", a: "الإجابة العلمية: تختلف العناصر في حالاتها الفيزيائية (صلبة، سائلة، غازية) في الظروف الطبيعية باختلاف طبيعة كل عنصر." }
+      ]),
+
+      createAct("act2", "phys", "نشاط ٢ — صفحة ٥٢", "نشاط ٢: ليس كل ما يلمع ذهباً (صفحة ٥٢)", "فحص الحديد والنحاس والألومنيوم والكربون (جرافيت) والكبريت بعد تنظيفها بورقة الصنفرة", "ليس كل ما يلمع ذهباً (صفحة ٥٢)", "ننظف سطح الحديد والنحاس والألومنيوم والكربون (جرافيت) والكبريت بورقة الصنفرة (ورق الزجاج) ونصنفها إلى عناصر لها لمعان وبريق وأخرى ليس لها لمعان وبريق.", [
+        { t: "الجزء ١", i: "📄", n: "تنظيف السطح بورقة الصنفرة (ص ٥٢)", d: "تنظيف سطح كل عنصر بورقة الصنفرة (ورق الزجاج) وملاحظته.", lab: "luster", defaultSample: 0 },
+        { t: "الجزء ٢", i: "✨", n: "عناصر لها لمعان وبريق (ص ٥٢)", d: "الحديد والنحاس والألومنيوم من العناصر التي يظهر لها لمعان وبريق واضح.", lab: "luster", defaultSample: 0 },
+        { t: "الجزء ٣", i: "🔍", n: "مقارنة بقية العناصر (ص ٥٢)", d: "مقارنة الكربون (جرافيت) والكبريت وعدم الاكتفاء باللمعان وحده.", lab: "luster", defaultSample: 1 }
+      ], [
+        { i: "📄", n: "ورق الصنفرة" }, { i: "✨", n: "اللمعان والبريق" }, { i: "🔍", n: "التصنيف" }
+      ], [
+        { t: "المشهد ١ (نشاط ٢ - ص ٥٢)", c: "c1", s: "تقول ورقة الصنفرة: نظّف سطح العينة أولاً ثم سجل ملاحظاتك بدقة." },
+        { t: "المشهد ٢ (نشاط ٢ - ص ٥٢)", c: "c2", s: "يقول اللمعان والبريق: بعض العناصر لها لمعان وبريق واضح بعد الصنفرة." },
+        { t: "المشهد ٣ (نشاط ٢ - ص ٥٢)", c: "c3", s: "يقول التصنيف: صنّف العناصر إلى عناصر لها لمعان وبريق وأخرى ليس لها لمعان وبريق." }
+      ], [
+        { label: "خطوات نشاط ٢ (ص ٥٢)", out: "تنظيف السطح بورقة الصنفرة، ملاحظة البريق، وتصنيف العناصر." }
+      ], [
+        { q: "١. لماذا ننظف سطح العناصر بورقة الصنفرة (ورق الزجاج) قبل الحكم على لمعانها وبريقها (ص ٥٢)؟", a: "الإجابة العلمية: لإزالة طبقات الغبار أو التأكسد السطحي التي قد تحجب اللمعان أو البريق الحقيقي لسطح العنصر." },
+        { q: "٢. كيف نصنّف العناصر المختبرة في نشاط (٢) (ص ٥٢)؟", a: "الإجابة العلمية: إلى عناصر لها لمعان وبريق واضح (مثل الحديد والنحاس والألومنيوم)، وعناصر ليس لها لمعان وبريق واضح." },
+        { q: "٣. لماذا سُمّي النشاط «ليس كل ما يلمع ذهباً» وما الذي يجب مراعاته عند تصنيف العناصر (ص ٥٢)؟", a: "الإجابة العلمية: لأن المظهر اللامع وحده لا يكفي للحكم على نوع المادة أو العنصر، بل يجب فحص خصائص أخرى مثل القابلية للطرق والسحب والتوصيل الحراري والكهربائي." }
+      ]),
+
+      createAct("act3", "phys", "نشاط ٣ — ص ٥٣ حتى ٥٥", "نشاط ٣: طرق وسحب وثني (صفحة ٥٣ حتى ٥٥)", "قصة الحدّاد، وتجربة سلك النحاس وسلك الألومنيوم وقضيب الكربون (جرافيت) وقطع الكبريت بالمطرقة، ومشروع التشكيل", "طرق وسحب وثني (صفحة ٥٣ حتى ٥٥)", "تتشكل بعض العناصر كالحديد والنحاس والألومنيوم بالطرق والسحب والثني، بينما الكربون والكبريت غير قابلين للطرق والسحب والثني.", [
+        { t: "الجزء ١", i: "🔨", n: "قصة الحدّاد وتشكيل الحديد (ص ٥٣)", d: "تسخين الحديد وطرق الصفائح وسحب الأسلاك وثني القطع لإعادة التشكيل.", lab: "malleable", defaultSample: 0 },
+        { t: "الجزء ٢", i: "💥", n: "هيا نجرب: طرق وثني العناصر (ص ٥٤)", d: "طرق وثني سلك النحاس وسلك الألومنيوم وقضيب الكربون (جرافيت) وقطع الكبريت بالمطرقة.", lab: "malleable", defaultSample: 1 },
+        { t: "الجزء ٣", i: "🎨", n: "تصنيف العناصر ومشروع التشكيل (ص ٥٤–٥٥)", d: "تصنيف الحديد والنحاس والألومنيوم والكربون والكبريت، وتشكيل أسلاك النحاس وورق الألومنيوم.", lab: "malleable", defaultSample: 0 }
+      ], [
+        { i: "🔨", n: "عمل الحدّاد" }, { i: "💥", n: "هيا نجرب" }, { i: "🎨", n: "المشروع" }
+      ], [
+        { t: "المشهد ١ (نشاط ٣ - ص ٥٣)", c: "c1", s: "يقول عمل الحدّاد: يسخّن الحديد ويطرقه لصفائح ويسحبه لأسلاك ويثنيه لإعادة تشكيله." },
+        { t: "المشهد ٢ (نشاط ٣ - ص ٥٤)", c: "c2", s: "يقول هيا نجرب: جرّب الطرق والثني على سلك النحاس وسلك الألومنيوم وقضيب الكربون وقطع الكبريت." },
+        { t: "المشهد ٣ (نشاط ٣ - ص ٥٥)", c: "c3", s: "يقول المشروع: شكّل أشكالاً مختلفة من أسلاك النحاس وورق الألومنيوم." }
+      ], [
+        { label: "تصنيف عناصر نشاط ٣ (ص ٥٤)", out: "قابلة للطرق والسحب والثني: الحديد، النحاس، الألومنيوم — غير قابلة: الكربون، الكبريت." }
+      ], [
+        { q: "١. صنّف العناصر (الحديد، النحاس، الألومنيوم، الكربون، الكبريت) إلى قابلة للطرق والسحب والثني وغير قابلة (ص ٥٤):", a: "الإجابة العلمية: قابلة للطرق والسحب والثني: الحديد، النحاس، الألومنيوم؛ غير قابلة للطرق والسحب والثني: الكربون (جرافيت) والكبريت (إذ تتفتت أو تتكسر ولا تُسحب إلى أسلاك)." },
+        { q: "٢. ما الذي يفعله الحدّاد في القصة لتشكيل الحديد، وما الخاصية التي يعتمد عليها ذلك (ص ٥٣)؟", a: "الإجابة العلمية: يسخّن الحديد ويطرقه ويُسحبه ويُثنيه، معتمداً على خاصية القابلية للطرق والسحب والثني." },
+        { q: "٣. لماذا يُستخدم النحاس والألومنيوم في صناعة الأسلاك والرقائق والأشكال الفنية في المشروع (ص ٥٥)؟", a: "الإجابة العلمية: لأنهما يمتلكان قابلية عالية للطرق والسحب والثني والتشكيل دون أن يتكسرا." }
+      ]),
+
+      createAct("act4", "phys", "نشاط ٤ — صفحة ٥٦", "نشاط ٤: توصيل الحرارة (صفحة ٥٦)", "تثبيت بذور دوار الشمس بالشمع على قضيب حديد وقضيب نحاس وقضيب كربون (جرافيت) في ماء ساخن", "توصيل الحرارة (صفحة ٥٦)", "نثبت بالشمع بذور دوار الشمس على قضيب حديد وقضيب نحاس وقضيب كربون (جرافيت) ونغمس الأطراف في حوض ماء ساخن في الوقت نفسه.", [
+        { t: "الجزء ١", i: "🌻", n: "تثبيت بذور دوار الشمس بالشمع (ص ٥٦)", d: "تثبيت بذور دوار الشمس بالشمع على قضيب حديد وقضيب نحاس وقضيب كربون (جرافيت).", lab: "heat", defaultSample: 0 },
+        { t: "الجزء ٢", i: "♨️", n: "الغمس في حوض ماء ساخن (ص ٥٦)", d: "غمس الأطراف في حوض ماء ساخن في الوقت نفسه ومراقبة ذوبان الشمع.", lab: "heat", defaultSample: 1 },
+        { t: "الجزء ٣", i: "📊", n: "تفسير الملاحظات والاستنتاج (ص ٥٦)", d: "تفسير اختلاف انتقال الحرارة بين قضيب النحاس وقضيب الحديد وقضيب الكربون.", lab: "heat", defaultSample: 2 }
+      ], [
+        { i: "🌻", n: "البذور والشمع" }, { i: "♨️", n: "الماء الساخن" }, { i: "📊", n: "التفسير" }
+      ], [
+        { t: "المشهد ١ (نشاط ٤ - ص ٥٦)", c: "c1", s: "تقول البذور والشمع: نُثبت على كل قضيب بالشمع لنلاحظ متى يذوب الشمع ونسقط." },
+        { t: "المشهد ٢ (نشاط ٤ - ص ٥٦)", c: "c2", s: "يقول الماء الساخن: غمرنا أطراف القضبان معاً لنقارن انتقال الحرارة." },
+        { t: "المشهد ٣ (نشاط ٤ - ص ٥٦)", c: "c3", s: "يقول التفسير: تختلف العناصر في توصيلها للحرارة." }
+      ], [
+        { label: "أدوات نشاط ٤ (ص ٥٦)", out: "قضيب حديد، قضيب نحاس، قضيب كربون (جرافيت)، بذور دوار الشمس، شمع، ماء ساخن." }
+      ], [
+        { q: "١. ما دور الشمع وبذور دوار الشمس في نشاط (٤) توصيل الحرارة (ص ٥٦)؟", a: "الإجابة العلمية: يعمل الشمع كوسيط ينصهر عند وصول الحرارة إليه، فتكون سقوط بذور دوار الشمس مؤشراً واضحاً على انتقال الحرارة عبر القضيب." },
+        { q: "٢. لماذا نغمس أطراف القضبان في حوض الماء الساخن في الوقت نفسه وبنفس الشروط (ص ٥٦)؟", a: "الإجابة العلمية: لتثبيت العوامل وضمان عدالة المقارنة بين انتقال الحرارة في كل عنصر." },
+        { q: "٣. ما الاستنتاج العلمي حول توصيل العناصر للحرارة في نشاط (٤) (ص ٥٦)؟", a: "الإجابة العلمية: تختلف العناصر في قدرتها على توصيل الحرارة؛ فالعناصر الموصلة للحرارة كالنحاس والحديد تنقل الحرارة بكفاءة أعلى من غيرها." }
+      ]),
+
+      createAct("act5", "phys", "نشاط ٥ — صفحة ٥٧", "نشاط ٥: توصيل الكهرباء (صفحة ٥٧)", "اختبار مسمار حديد وسلك نحاس وورق ألومنيوم وقضيب كربون (جرافيت) وقطع كبريت بين الطرفين (أ، ب)", "توصيل الكهرباء (صفحة ٥٧)", "نركب دارة كهربائية (بطارية، مصباح كهربائي، أسلاك توصيل) ونضع كل عنصر بين الطرفين (أ، ب) لتصنيفه إلى جيدة التوصيل أو رديئة التوصيل.", [
+        { t: "الجزء ١", i: "🔋", n: "تركيب الدارة والطرفان (أ، ب) (ص ٥٧)", d: "تركيب الدارة الكهربائية ووضع كل عنصر بين الطرفين (أ، ب).", lab: "electric", defaultSample: 0 },
+        { t: "الجزء ٢", i: "⚡", n: "مسمار الحديد وسلك النحاس وورق الألومنيوم", d: "اختبار هذه العناصر في الدارة الكهربائية وتسجيل ملاحظات التوصيل.", lab: "electric", defaultSample: 0 },
+        { t: "الجزء ٣", i: "🚫", n: "قضيب الكربون (جرافيت) وقطع الكبريت", d: "اختبار الكربون والكبريت وتصنيف العناصر في الجدول.", lab: "electric", defaultSample: 1 }
+      ], [
+        { i: "🔋", n: "الدارة (أ، ب)" }, { i: "⚡", n: "العناصر الموصلة" }, { i: "🚫", n: "الكبريت والكربون" }
+      ], [
+        { t: "المشهد ١ (نشاط ٥ - ص ٥٧)", c: "c1", s: "تقول الدارة: ضع كل عنصر بين الطرفين (أ، ب) وراقب المصباح." },
+        { t: "المشهد ٢ (نشاط ٥ - ص ٥٧)", c: "c2", s: "تقول العناصر الموصلة: مسمار الحديد وسلك النحاس وورق الألومنيوم يمررون التيار." },
+        { t: "المشهد ٣ (نشاط ٥ - ص ٥٧)", c: "c3", s: "يقول الكبريت والكربون: قارن بين الكبريت والكربون (جرافيت) وسجّل في الجدول." }
+      ], [
+        { label: "أدوات نشاط ٥ (ص ٥٧)", out: "مسمار حديد، سلك نحاس، ورق ألومنيوم، قضيب كربون (جرافيت)، قطع كبريت، بطارية، مصباح، أسلاك توصيل." }
+      ], [
+        { q: "١. كيف نختبر توصيل عنصر للكهرباء باستخدام الدارة في نشاط (٥) (ص ٥٧)؟", a: "الإجابة العلمية: بوضع العنصر بين الطرفين (أ، ب) لإغلاق الدارة الكهربائية؛ فإذا أضاء المصباح كان العنصر موصلاً للكهرباء، وإذا لم يضئ كان رديء التوصيل." },
+        { q: "٢. صنّف العناصر المختبرة في نشاط (٥) (مسمار حديد، سلك نحاس، ورق ألومنيوم، قضيب كربون/جرافيت، قطع كبريت) (ص ٥٧):", a: "الإجابة العلمية: موصلة للكهرباء: مسمار الحديد، سلك النحاس، ورق الألومنيوم، وقضيب الكربون (الجرافيت)؛ رديئة التوصيل للكهرباء: قطع الكبريت." },
+        { q: "٣. لماذا تُصنع أسلاك التوصيل الكهربائية عادةً من عناصر موصلة للكهرباء كالنحاس أو الألومنيوم وتُغلف بمادة عازلة؟", a: "الإجابة العلمية: لأن النحاس والألومنيوم يسمحان بمرور التيار الكهربائي بسهولة، بينما توفر المادة العازلة الحماية من الصدمات الكهربائية." }
+      ]),
+
+      createAct("act6", "phys", "نشاط ٦ — ص ٥٨ حتى ٥٩", "نشاط ٦: القابلية للانصهار (صفحة ٥٨ حتى ٥٩)", "تسخين الكبريت ومسمار الحديد على لهب بنسن، وقراءة الرسم البياني (١١٣، ٦٦٠، ١٠٨٤، ١٥٣٨، ٣٥٤٧ س°)، ومناقشة الخردة", "القابلية للانصهار (صفحة ٥٨ حتى ٥٩)", "نسخن الكبريت ومسمار الحديد على لهب بنسن مع مراعاة السلامة، وندرس الرسم البياني (الكبريت ١١٣، الألومنيوم ٦٦٠، النحاس ١٠٨٤، الحديد ١٥٣٨، الكربون ٣٥٤٧ س°) ونناقش تجميع الخردة في فلسطين.", [
+        { t: "الجزء ١", i: "🔥", n: "تسخين الكبريت ومسمار الحديد (ص ٥٨)", d: "تسخين الكبريت في أنبوب اختبار ومسمار الحديد بملقط خشبي على لهب بنسن مع الحذر من الغاز السام.", lab: "melting", defaultSample: 0 },
+        { t: "الجزء ٢", i: "📈", n: "الرسم البياني والترتيب التصاعدي (ص ٥٨–٥٩)", d: "الكبريت ١١٣، الألومنيوم ٦٦٠، النحاس ١٠٨٤، الحديد ١٥٣٨، الكربون ٣٥٤٧ س°، وحالة الألومنيوم عند ٨٠٠ س°.", lab: "melting", defaultSample: 1 },
+        { t: "الجزء ٣", i: "♻️", n: "تفسير الانصهار ومناقشة الخردة (ص ٥٩)", d: "تفسير انصهار الكبريت قبل الحديد، ومناقشة تجميع الألومنيوم والحديد والنحاس (الخردة) في فلسطين.", lab: "melting", defaultSample: 3 }
+      ], [
+        { i: "🔥", n: "لهب بنسن" }, { i: "📈", n: "الرسم البياني" }, { i: "♻️", n: "الخردة بفلسطين" }
+      ], [
+        { t: "المشهد ١ (نشاط ٦ - ص ٥٨)", c: "c1", s: "يقول لهب بنسن: نُعرّض الكبريت ومسمار الحديد للحرارة مع التهوية والقفازات والنظارات بسبب الغاز السام." },
+        { t: "المشهد ٢ (نشاط ٦ - ص ٥٨–٥٩)", c: "c2", s: "يقول الرسم البياني: الكبريت ١١٣، الألومنيوم ٦٦٠، النحاس ١٠٨٤، الحديد ١٥٣٨، الكربون ٣٥٤٧ س°." },
+        { t: "المشهد ٣ (نشاط ٦ - ص ٥٩)", c: "c3", s: "تقول الخردة بفلسطين: نناقش أهمية تجميع الألومنيوم والحديد والنحاس وإعادة الاستفادة منها." }
+      ], [
+        { label: "الترتيب التصاعدي (ص ٥٩)", out: "الكبريت (١١٣) < الألومنيوم (٦٦٠) < النحاس (١٠٨٤) < الحديد (١٥٣٨) < الكربون (٣٥٤٧) س°." },
+        { label: "الألومنيوم عند ٨٠٠ س° (ص ٥٩)", out: "بما أن درجة انصهار الألومنيوم ٦٦٠ س°، فعند ٨٠٠ س° يكون في الحالة السائلة." }
+      ], [
+        { q: "١. رتّب العناصر تصاعدياً حسب درجة انصهارها من الرسم البياني (ص ٥٨–٥٩):", a: "الإجابة العلمية: الكبريت (١١٣ س°)، ثم الألومنيوم (٦٦٠ س°)، ثم النحاس (١٠٨٤ س°)، ثم الحديد (١٥٣٨ س°)، ثم الكربون (٣٥٤٧ س°)." },
+        { q: "٢. لماذا ينصهر الكبريت قبل انصهار مسمار الحديد عند التسخين (ص ٥٩)؟", a: "الإجابة العلمية: لأن درجة انصهار الكبريت (١١٣ س°) أقل بكثير من درجة انصهار الحديد (١٥٣٨ س°)، فيحتاج الكبريت إلى حرارة أقل للتحول من الحالة الصلبة إلى السائلة." },
+        { q: "٣. ما حالة عنصر الألومنيوم عند درجة حرارة ٨٠٠ س°؟ ولماذا تُعد إعادة تجميع الخردة (الألومنيوم والحديد والنحاس) في فلسطين مهمة (ص ٥٩)؟", a: "الإجابة العلمية: يكون الألومنيوم في الحالة السائلة عند ٨٠٠ س° لأن درجة انصهاره ٦٦٠ س°؛ وتُعد إعادة تجميع الخردة مهمة للحفاظ على الموارد وتقليل النفايات وتوفير الطاقة والمواد الخام." }
+      ]),
+
+      createAct("act7", "phys", "نشاط ٧ واختبر نفسي — ص ٥٩–٦٠", "نشاط ٧: التمغنط واختبر نفسي (صفحة ٥٩ واختبر نفسي صفحة ٦٠)", "دلك قضبان الألومنيوم ومسمار الحديد وقضيب الكربون (جرافيت) وسلك النحاس بالمغناطيس واختبار برادة الحديد، وخريطة اختبر نفسي", "التمغنط (ص ٥٩) واختبر نفسي (ص ٦٠)", "ندلك كل قطعة بالمغناطيس من طرف إلى آخر باتجاه واحد دون العكس، ثم نقربها من برادة الحديد لنرى القابلة للتمغنط، ونكمل خريطة الخصائص الفيزيائية في اختبر نفسي.", [
+        { t: "الجزء ١", i: "🧲", n: "الدلك بالمغناطيس باتجاه واحد (ص ٦٠)", d: "دلك العناصر بدءاً من طرف إلى آخر مرات عديدة دون تحريك المغناطيس بالاتجاه المعاكس.", lab: "magnetism", defaultSample: 0 },
+        { t: "الجزء ٢", i: "📌", n: "اختبار برادة الحديد (ص ٦٠)", d: "تقريب القطع المدلوكة من برادة الحديد لمعرفة القابلة للتمغنط وغير القابلة.", lab: "magnetism", defaultSample: 1 },
+        { t: "الجزء ٣", i: "🗺️", n: "خريطة اختبر نفسي (ص ٦٠)", d: "إكمال خريطة الخصائص الفيزيائية للعناصر (الحالة: صلبة/سائلة/غازية، التوصيل الحراري، الانصهار، التمغنط...).", lab: "electric", defaultSample: 0 }
+      ], [
+        { i: "🧲", n: "الدلك بالمغناطيس" }, { i: "📌", n: "برادة الحديد" }, { i: "🗺️", n: "اختبر نفسي" }
+      ], [
+        { t: "المشهد ١ (نشاط ٧ - ص ٦٠)", c: "c1", s: "يقول الدلك بالمغناطيس: ادلك في اتجاه واحد من طرف إلى آخر دون العكس." },
+        { t: "المشهد ٢ (نشاط ٧ - ص ٦٠)", c: "c2", s: "تقول برادة الحديد: القطعة القابلة للتمغنط تجذبني عند تقريبها مني." },
+        { t: "المشهد ٣ (اختبر نفسي - ص ٦٠)", c: "c3", s: "يقول اختبر نفسي: أكمل خريطة الخصائص الفيزيائية للعناصر بدقة." }
+      ], [
+        { label: "عناصر نشاط ٧ (ص ٥٩)", out: "قضبان ألومنيوم، مسمار حديد، قضيب كربون (جرافيت)، سلك نحاس، مغناطيس، برادة حديد." }
+      ], [
+        { q: "١. كيف ندلك القطعة بالمغناطيس في نشاط (٧) التمغنط ولماذا لا نحرك المغناطيس بالاتجاه المعاكس (ص ٦٠)?", a: "الإجابة العلمية: ندلك بدءاً من أحد طرفي القطعة ومنتهياً بالطرف الآخر مرات عديدة في اتجاه واحد ثابت؛ لأن الدلك في اتجاه واحد يرتب المناطق المغناطيسية بانتظام دون تشويشها أو إضعاف تمغنطها." },
+        { q: "٢. أي العناصر في نشاط (٧) يظهر عليها التمغنط وتجذب برادة الحديد، وأيها لا يجذبها (ص ٥٩–٦٠)?", a: "الإجابة العلمية: مسمار الحديد قابل للتمغنط ويجذب برادة الحديد؛ بينما الألومنيوم والنحاس والكربون (الجرافيت) لا تجذب برادة الحديد." },
+        { q: "٣. أكمل خريطة الخصائص الفيزيائية في «اختبر نفسي» (ص ٦٠): الحالة في الظروف الطبيعية قد تكون صلبة أو ... أو ...، ومن الخصائص الفيزيائية الأخرى: التوصيل ... و... و...:", a: "الإجابة العلمية: سائلة أو غازية؛ ومن الخصائص الفيزيائية الأخرى: التوصيل الحراري، والتوصيل الكهربائي، ودرجة الانصهار، والتمغنط، والقابلية للطرق والسحب والثني، واللمعان." }
+      ]),
+
+      createAct("act8", "chem", "نشاط ٨ — ص ٦١ حتى ٦٢", "نشاط ٨: تكوين مواد جديدة (مركبات) (صفحة ٦١ حتى ٦٢)", "تفكيك ومختبر الصدأ والمغناطيس، وتجربة المسامير الثلاثة في الأنابيب والماء، وحماية العناصر من التآكل", "تكوين مواد جديدة (مركبات) (صفحة ٦١ حتى ٦٢)", "ينتج صدأ الحديد عن اتحاد الحديد مع الأكسجين في جو رطب؛ وهو تغير كيميائي ينتج مادة جديدة (الصدأ) تختلف في خصائصها عن الحديد.", [
+        { t: "الجزء ١", i: "⛓️", n: "ملاحظة الصدأ وتقريب المغناطيس (ص ٦١)", d: "نجمع الصدأ باستخدام قفازات سميكة ونقرب المغناطيس منه؛ فالصدأ مادة جديدة تختلف في خصائصها عن الحديد والصدأ تغير كيميائي.", lab: "act8_rust", defaultSample: 0 },
+        { t: "الجزء ٢", i: "🧪", n: "تجربة المسامير الثلاثة والأنابيب والماء (ص ٦٢)", d: "نُحضر ثلاثة مسامير نظيفة وثلاثة أنابيب اختبار وماء ونتركها في الهواء ليلة أو أكثر لتسجيل الملاحظات وتفسيرها.", lab: "act8_rust", defaultSample: 1 },
+        { t: "الجزء ٣", i: "🛡️", n: "حماية العناصر من التآكل (ص ٦٢)", d: "نفكر في حماية العناصر عند تعرضها للهواء الجوي، مثل عزلها بالطلاء أو التزييت أو التغليف لمنع تآكلها.", lab: "act8_rust", defaultSample: 2 }
+      ], [
+        { i: "⛓️", n: "الصدأ والمغناطيس" }, { i: "🧪", n: "المسامير الثلاثة" }, { i: "🛡️", n: "الحماية من التآكل" }
+      ], [
+        { t: "المشهد ١ (نشاط ٨ - ص ٦١)", c: "c1", s: "يقول الصدأ: أنا مادة جديدة ناتجة عن تغير كيميائي وأختلف في خصائصي عن الحديد." },
+        { t: "المشهد ٢ (نشاط ٨ - ص ٦٢)", c: "c2", s: "تقول المسامير الثلاثة: صدأ الحديد ينتج عن اتحاد الحديد مع الأكسجين في جو رطب." },
+        { t: "المشهد ٣ (نشاط ٨ - ص ٦٢)", c: "c3", s: "تقول الحماية من التآكل: نحمي العناصر من التآكل بعزلها عن الهواء والرطوبة." }
+      ], [
+        { label: "الصدأ وتقريب المغناطيس (ص ٦١)", out: "الصدأ مادة جديدة تختلف في خصائصها عن الحديد، وتكوّنه تغير كيميائي." },
+        { label: "تجربة المسامير الثلاثة والماء (ص ٦٢)", out: "ثلاثة مسامير نظيفة وثلاثة أنابيب اختبار وماء تُترك في الهواء ليلة أو أكثر لتسجيل الملاحظات وتفسيرها." },
+        { label: "حماية العناصر من التآكل (ص ٦٢)", out: "يمكن حماية العناصر من التآكل بعزلها عن الهواء والرطوبة مثل الطلاء أو التزييت." }
+      ], [
+        { q: "١. ماذا أشاهد في صور نشاط (٨) (ص ٦١)، وهل الصدأ يُشبه الحديد في خصائصه؟ أفسّر:", a: "الإجابة العلمية: نشاهد الحديد والصدأ؛ والصدأ لا يُشبه الحديد في خصائصه (من حيث اللون والهشاشة والاستجابة للمغناطيس) لأنه مادة جديدة نتجت عن تغير كيميائي." },
+        { q: "٢. أجرب المسامير الثلاثة والثلاثة أنابيب والماء وأتركها في الهواء ليلة أو أكثر (ص ٦٢) — ماذا ألاحظ وأفسّر؟", a: "الإجابة العلمية: نلاحظ تكون طبقة الصدأ على الحديد؛ والتفسير العلمي أن صدأ الحديد ينتج عن اتحاد الحديد مع الأكسجين في جو رطب (بوجود الرطوبة والهواء)." },
+        { q: "٣. تتأكل بعض العناصر عند تعرضها للهواء الجوي، كيف يمكن حماية هذه العناصر من التآكل (ص ٦٢)؟", a: "الإجابة العلمية: بحمايتها وعزلها عن الهواء الجوي والرطوبة، مثل الطلاء بالدهان أو التزييت أو التغليف أو الجلفنة." }
+      ]),
+
+      createAct("act9", "chem", "نشاط ٩ — صفحة ٦٢", "نشاط ٩: النحاس اللامع (صفحة ٦٢)", "تفكيك ومختبر وضع قطعة أو عملة نقدية نحاسية متغيرة اللون في مخلوط الملح والخل أو حامض الليمون ثم تجفيفها في الهواء", "النحاس اللامع (صفحة ٦٢)", "نضع قطعة أو عملة نحاسية تغيّر لونها في كأس به مخلوط الملح والخل أو حامض الليمون، ثم نخرجها ونجففها في الهواء ونلاحظ التغيرات.", [
+        { t: "الجزء ١", i: "🪙", n: "قطعة أو عملة نحاسية تغيّر لونها (ص ٦٢)", d: "نُحضر قطعة نحاسية أو عملة نقدية نحاسية تغيّر لونها لملاحظة التغير الكيميائي الذي طرأ عليها.", lab: "act9_copper", defaultSample: 0 },
+        { t: "الجزء ٢", i: "🍋", n: "الوضع في مخلوط الملح والخل أو حامض الليمون", d: "نضع العملة النحاسية في كأس به مخلوط الملح والخل أو حامض الليمون ونسجل ملاحظاتنا وما حدث للعملة.", lab: "act9_copper", defaultSample: 1 },
+        { t: "الجزء ٣", i: "🌬️", n: "إخراج العملة وتجفيفها في الهواء (ص ٦٢)", d: "نُخرج العملة النحاسية ونجففها في الهواء ونلاحظ إن حدثت تغيرات أخرى وكيف عرفنا ذلك.", lab: "act9_copper", defaultSample: 2 }
+      ], [
+        { i: "🪙", n: "العملة النحاسية" }, { i: "🍋", n: "الملح والخل / الليمون" }, { i: "🌬️", n: "التجفيف بالهواء" }
+      ], [
+        { t: "المشهد ١ (نشاط ٩ - ص ٦٢)", c: "c1", s: "تقول العملة النحاسية: تغيّر لوني وسنختبر ما يحدث عند وضعي في المحلول." },
+        { t: "المشهد ٢ (نشاط ٩ - ص ٦٢)", c: "c2", s: "يقول الملح والخل أو حامض الليمون: ضع العملة في الكأس وسجّل ملاحظاتك بدقة." },
+        { t: "المشهد ٣ (نشاط ٩ - ص ٦٢)", c: "c3", s: "يقول التجفيف بالهواء: أخرج العملة وجففها ولاحظ إن حدثت تغيرات أخرى." }
+      ], [
+        { label: "الخطوة ١–٢: المحلول (ص ٦٢)", out: "تُوضع العملة النحاسية متغيرة اللون في كأس به مخلوط الملح والخل أو حامض الليمون وتُسجل الملاحظات." },
+        { label: "الخطوة ٣–٥: التجفيف والملاحظة (ص ٦٢)", out: "تُخرج العملة وتُجفف في الهواء وتُلاحظ التغيرات التي حدثت وكيف عرفناها." }
+      ], [
+        { q: "١. ماذا أضع في الكأس مع العملة النحاسية المتغير لونها في نشاط (٩) (ص ٦٢)؟", a: "الإجابة العلمية: مخلوط الملح والخل أو حامض الليمون." },
+        { q: "٢. ما التغيرات التي حدثت للعملة النحاسية بعد وضعها في المحلول ثم إخراجها وتجفيفها في الهواء، وكيف عرفنا ذلك (ص ٦٢)؟", a: "الإجابة العلمية: حدث تغير واضح في مظهر ولون سطح العملة النحاسية نتيجة التفاعل مع مخلوط الملح والخل أو حامض الليمون، وعرفنا ذلك بالملاحظة المباشرة للون والسطح قبل وبعد التجفيف." },
+        { q: "٣. ما نوع التغير الذي يطرأ على النحاس عند تفاعله وتكون طبقة أو مركب جديد على سطحه (ص ٦٢)؟", a: "الإجابة العلمية: تغير كيميائي؛ لأنه يؤدي إلى تكوّن مواد جديدة تختلف في خصائصها عن العنصر الأصلي." }
+      ]),
+
+      createAct("act10", "chem", "نشاط ١٠ — صفحة ٦٣", "نشاط ١٠: الخل ومسحوق الخبيز (صفحة ٦٣)", "تفكيك ومختبر وضع ٢٠ سم³ من خل الطعام في القارورة وملعقتين صغيرتين من مسحوق الخبيز (بايكربونات الصوديوم) في بالون وإسقاطه", "الخل ومسحوق الخبيز (صفحة ٦٣)", "نضع ٢٠ سم³ من خل الطعام في القارورة وملعقتين صغيرتين من مسحوق الخبيز (بايكربونات الصوديوم) في بالون، ونثبته على الفوهة ثم نسقط المسحوق لنتيجة تغيرات كيميائية.", [
+        { t: "الجزء ١", i: "🍾", n: "وضع ٢٠ سم³ من خل الطعام في القارورة (ص ٦٣)", d: "نضع ٢٠ سم³ من خل الطعام في القارورة الفارغة وتجهيزها للتجربة.", lab: "act10_vinegar", defaultSample: 0 },
+        { t: "الجزء ٢", i: "🎈", n: "مسحوق الخبيز (بايكربونات الصوديوم) في بالون", d: "نضع ملعقتين صغيرتين من مسحوق الخبيز (بايكربونات الصوديوم) في بالون ونثبته على فوهة القارورة.", lab: "act10_vinegar", defaultSample: 1 },
+        { t: "الجزء ٣", i: "⚗️", n: "إسقاط المسحوق وتغير الصفات (ص ٦٣)", d: "نرفع البالون تدريجياً ليسقط المسحوق داخل القارورة؛ تتغير صفات المادة الناتجة عن المواد الداخلة والتغيرات كيميائية.", lab: "act10_vinegar", defaultSample: 2 }
+      ], [
+        { i: "🍾", n: "خل الطعام (٢٠ سم³)" }, { i: "🎈", n: "مسحوق الخبيز" }, { i: "⚗️", n: "تغيرات كيميائية" }
+      ], [
+        { t: "المشهد ١ (نشاط ١٠ - ص ٦٣)", c: "c1", s: "يقول خل الطعام: ضع ٢٠ سم³ من خل الطعام في القارورة أولاً." },
+        { t: "المشهد ٢ (نشاط ١٠ - ص ٦٣)", c: "c2", s: "يقول مسحوق الخبيز: ضع ملعقتين صغيرتين في البالون وثبّته على الفوهة ثم ارفعه تدريجياً." },
+        { t: "المشهد ٣ (نشاط ١٠ - ص ٦٣)", c: "c3", s: "يقول التغير الكيميائي: تغيرت صفات المادة الناتجة؛ فالتغيرات هنا تغيرات كيميائية." }
+      ], [
+        { label: "مقادير النشاط ١٠ (ص ٦٣)", out: "٢٠ سم³ من خل الطعام في القارورة + ملعقتان صغيرتان من مسحوق الخبيز (بايكربونات الصوديوم) في بالون." },
+        { label: "النتيجة والاستنتاج (ص ٦٣)", out: "تغيرت صفات المادة الناتجة عن المواد الداخلة، والتغيرات هي تغيرات كيميائية." }
+      ], [
+        { q: "١. ما كمية خل الطعام ومسحوق الخبيز (بايكربونات الصوديوم) المستخدمة في نشاط (١٠) (ص ٦٣)؟", a: "الإجابة العلمية: ٢٠ سم³ من خل الطعام في القارورة، وملعقتان صغيرتان من مسحوق الخبيز (بايكربونات الصوديوم) داخل البالون." },
+        { q: "٢. هل تغيرت صفات المادة الناتجة عن صفات المواد الداخلة؟ أُفسّر (ص ٦٣):", a: "الإجابة العلمية: نعم، تغيرت صفات المادة الناتجة؛ لأن تفاعل خل الطعام مع مسحوق الخبيز (بايكربونات الصوديوم) أدى إلى حدوث تفاعل كيميائي وتكوين مواد جديدة تختلف صفاتها عن المواد المتفاعلة." },
+        { q: "٣. أكمل الاستنتاج في نشاط (١٠) (ص ٦٣): التغيرات التي حدثت على مسمار الحديد، والقطعة النحاسية، وخل الطعام، هي تغيرات ...:", a: "الإجابة العلمية: تغيرات كيميائية؛ لأنها أنتجت مواد جديدة ذات صفات مختلفة عن صفات المواد الأصلية." }
+      ])
+    ];
+
+    let curAct = null, curPart = 0, expOn = true, scIdx = 0, conceptVisible = true;
+    let curSampleIdx = 0, comparedRecord = null, answersHidden = false, masterAnswersHidden = false;
+
+    function syncPrintFields() {
+      const secVal = document.getElementById("ssection").value || "--";
+      const nameVal = document.getElementById("sname").value.trim();
+      document.getElementById("printSec").textContent = secVal;
+      document.getElementById("printName").textContent = nameVal;
+    }
+
+    function toggleConcept() {
+      conceptVisible = !conceptVisible;
+      const txt = document.getElementById("conceptText");
+      const btn = document.getElementById("toggleConceptBtn");
+      txt.classList.toggle("hidden-concept", !conceptVisible);
+      btn.textContent = conceptVisible ? "👁️ إخفاء المفهوم" : "👁️ إظهار المفهوم";
+    }
+
+    function toggleAnswersVisibility() {
+      answersHidden = !answersHidden;
+      const ws = document.getElementById("wsContainer");
+      const btn = document.getElementById("toggleAllAnsBtn");
+      ws.classList.toggle("hide-all-ans", answersHidden);
+      btn.textContent = answersHidden ? "💡 إظهار جميع الإجابات العلمية" : "👁️ إخفاء الإجابات أثناء الاختبار";
+    }
+
+    function toggleMasterAnswersVisibility() {
+      masterAnswersHidden = !masterAnswersHidden;
+      const box = document.getElementById("masterAnswersContainer");
+      const btn = document.getElementById("toggleMasterAnsBtn");
+      box.classList.toggle("hide-all-ans", masterAnswersHidden);
+      btn.textContent = masterAnswersHidden ? "💡 إظهار جميع الإجابات العلمية" : "👁️ إخفاء الإجابات أثناء الاختبار";
+    }
+
+    function setTopActive(mode) {
+      document.getElementById("btnIndex").classList.toggle("active", mode === "index");
+      document.getElementById("btnSummary").classList.toggle("active", mode === "summary");
+      document.getElementById("btnMasterAnswers").classList.toggle("active", mode === "master");
+      ["subExploded","subTalking","subWorksheet"].forEach(id => {
+        document.getElementById(id).style.display = mode === "activity" ? "inline-flex" : "none";
+      });
+    }
+
+    function buildIndex() {
+      const physG = document.getElementById("physGrid");
+      const chemG = document.getElementById("chemGrid");
+      if (!physG || !chemG) return;
+      physG.innerHTML = "";
+      chemG.innerHTML = "";
+
+      activities.forEach(a => {
+        const d = document.createElement("div");
+        d.className = "idx-card";
+        d.innerHTML = `<span class="idx-badge">${a.badge}</span><div class="idx-title">${a.title}</div><div class="idx-sub">${a.sub}</div>`;
+        d.onclick = () => openActivity(a.id);
+        if (a.section === "phys") physG.appendChild(d);
+        else chemG.appendChild(d);
+      });
+    }
+
+    function buildSummary() {
+      const sg = document.getElementById("summaryGrid");
+      if (!sg) return;
+      sg.innerHTML = "";
+      summaryCards.forEach(c => {
+        const card = document.createElement("div");
+        card.className = "sum-card";
+        card.innerHTML = `
+          <div class="sum-head">
+            <span class="sum-name">${c.icon} ${c.name}</span>
+            <button class="btn" style="padding:4px 9px; font-size:0.78rem;" onclick="speak('${c.name}. ${c.prop}. ${c.ex}')">🔊</button>
+          </div>
+          <div class="sum-prop">${c.prop}</div>
+          <div class="sum-ex"><strong>من الكتاب:</strong> ${c.ex}</div>
+        `;
+        sg.appendChild(card);
+      });
+    }
+
+    function buildMasterAnswers() {
+      const container = document.getElementById("masterAnswersContainer");
+      if (!container) return;
+      container.innerHTML = "";
+
+      const sections = [
+        { key: "phys", label: "أولاً: الإجابات العلمية لأنشطة الخصائص الفيزيائية (١ – ٧ واختبر نفسي)", cls: "axis-heading" },
+        { key: "chem", label: "ثانياً: الإجابات العلمية لأنشطة الخصائص الكيميائية (٨ – ١٠)", cls: "axis-heading sec-chem" }
+      ];
+
+      sections.forEach(sec => {
+        const h = document.createElement("div");
+        h.className = sec.cls;
+        h.textContent = sec.label;
+        container.appendChild(h);
+
+        activities.filter(a => a.section === sec.key).forEach(act => {
+          const block = document.createElement("div");
+          block.className = "master-act-block";
+
+          const head = document.createElement("div");
+          head.className = "master-act-title";
+          head.innerHTML = `<span>${act.title}</span>`;
+
+          const openBtn = document.createElement("button");
+          openBtn.type = "button";
+          openBtn.className = "btn";
+          openBtn.style.cssText = "padding:4px 10px; font-size:0.8rem;";
+          openBtn.textContent = "🔬 فتح النشاط ومختبره";
+          openBtn.onclick = () => openActivity(act.id);
+          head.appendChild(openBtn);
+          block.appendChild(head);
+
+          act.questions.forEach(item => {
+            const qBox = document.createElement("div");
+            qBox.className = "q";
+            qBox.style.marginBottom = "8px";
+
+            const lbl = document.createElement("label");
+            lbl.textContent = item.q;
+
+            const ansBox = document.createElement("div");
+            ansBox.className = "ans";
+
+            const ansTxt = document.createElement("span");
+            ansTxt.textContent = item.a;
+
+            const spkBtn = document.createElement("button");
+            spkBtn.type = "button";
+            spkBtn.className = "btn";
+            spkBtn.style.cssText = "padding:4px 9px; font-size:0.78rem;";
+            spkBtn.textContent = "🔊 انطق الإجابة";
+            spkBtn.onclick = () => speak(item.a);
+
+            ansBox.appendChild(ansTxt);
+            ansBox.appendChild(spkBtn);
+            qBox.appendChild(lbl);
+            qBox.appendChild(ansBox);
+            block.appendChild(qBox);
+          });
+
+          container.appendChild(block);
+        });
+      });
+    }
+
+    function speakAllSummary() {
+      const text = summaryCards.map(c => `${c.name}. ${c.prop}. ${c.ex}`).join(" . ");
+      speak(text);
+    }
+
+    function showIndex() {
+      stopSp();
+      setTopActive("index");
+      document.getElementById("indexView").style.display = "block";
+      document.getElementById("summaryView").style.display = "none";
+      document.getElementById("masterAnswersView").style.display = "none";
+      document.getElementById("activityView").style.display = "none";
+    }
+
+    function showSummary() {
+      stopSp();
+      setTopActive("summary");
+      document.getElementById("indexView").style.display = "none";
+      document.getElementById("summaryView").style.display = "block";
+      document.getElementById("masterAnswersView").style.display = "none";
+      document.getElementById("activityView").style.display = "none";
+    }
+
+    function showMasterAnswers() {
+      stopSp();
+      setTopActive("master");
+      document.getElementById("indexView").style.display = "none";
+      document.getElementById("summaryView").style.display = "none";
+      document.getElementById("masterAnswersView").style.display = "block";
+      document.getElementById("activityView").style.display = "none";
+    }
+
+    function openActivity(id) {
+      stopSp();
+      curAct = activities.find(a => a.id === id);
+      curPart = 0; scIdx = 0; conceptVisible = true; comparedRecord = null; answersHidden = false;
+      curSampleIdx = curAct.parts[0].defaultSample || 0;
+      setTopActive("activity");
+      document.getElementById("indexView").style.display = "none";
+      document.getElementById("summaryView").style.display = "none";
+      document.getElementById("masterAnswersView").style.display = "none";
+      document.getElementById("activityView").style.display = "block";
+      document.getElementById("actTitle").textContent = curAct.title;
+      document.getElementById("conceptLabel").textContent = curAct.conceptTitle;
+      const cText = document.getElementById("conceptText");
+      cText.textContent = curAct.conceptText;
+      cText.classList.remove("hidden-concept");
+      document.getElementById("toggleConceptBtn").textContent = "👁️ إخفاء المفهوم";
+
+      const ws = document.getElementById("wsContainer");
+      ws.classList.remove("hide-all-ans");
+      document.getElementById("toggleAllAnsBtn").textContent = "👁️ إخفاء الإجابات أثناء الاختبار";
+
+      document.getElementById("ci1").textContent = curAct.chars[0].i;
+      document.getElementById("cn1").textContent = curAct.chars[0].n;
+      document.getElementById("ci2").textContent = curAct.chars[1].i;
+      document.getElementById("cn2").textContent = curAct.chars[1].n;
+      document.getElementById("ci3").textContent = curAct.chars[2].i;
+      document.getElementById("cn3").textContent = curAct.chars[2].n;
+
+      const sb = document.getElementById("simButtons");
+      sb.innerHTML = "";
+      document.getElementById("simOutput").innerHTML = "<strong>الملاحظة:</strong> اختر خطوة أو مثالاً من الكتاب للمحاكاة.";
+      curAct.sims.forEach(s => {
+        const b = document.createElement("button");
+        b.className = "btn";
+        b.textContent = s.label;
+        b.onclick = () => { document.getElementById("simOutput").innerHTML = "<strong>الملاحظة:</strong> " + s.out; };
+        sb.appendChild(b);
+      });
+
+      const wq = document.getElementById("wsQuestions");
+      wq.innerHTML = "";
+      curAct.questions.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "q";
+
+        const lbl = document.createElement("label");
+        lbl.textContent = item.q;
+
+        const inp = document.createElement("input");
+        inp.type = "text";
+        inp.placeholder = "اكتب إجابتك هنا...";
+
+        const ansBox = document.createElement("div");
+        ansBox.className = "ans";
+
+        const ansTxt = document.createElement("span");
+        ansTxt.textContent = item.a;
+
+        const spkBtn = document.createElement("button");
+        spkBtn.type = "button";
+        spkBtn.className = "btn";
+        spkBtn.style.cssText = "padding:4px 9px; font-size:0.78rem;";
+        spkBtn.textContent = "🔊 انطق الإجابة";
+        spkBtn.onclick = () => speak(item.a);
+
+        ansBox.appendChild(ansTxt);
+        ansBox.appendChild(spkBtn);
+
+        div.appendChild(lbl);
+        div.appendChild(inp);
+        div.appendChild(ansBox);
+        wq.appendChild(div);
+      });
+
+      setSubTab("exploded");
+      drawStage();
+      pickPart(0, false);
+      showSc();
+    }
+
+    function setSubTab(tab) {
+      stopSp();
+      document.getElementById("tabExploded").style.display = tab === "exploded" ? "block" : "none";
+      document.getElementById("tabTalking").style.display = tab === "talking" ? "block" : "none";
+      document.getElementById("tabWorksheet").style.display = tab === "worksheet" ? "block" : "none";
+      document.getElementById("subExploded").classList.toggle("active", tab === "exploded");
+      document.getElementById("subTalking").classList.toggle("active", tab === "talking");
+      document.getElementById("subWorksheet").classList.toggle("active", tab === "worksheet");
+    }
+
+    function toggleExp() {
+      expOn = !expOn;
+      const sl = document.getElementById("expSlider");
+      sl.value = expOn ? 70 : 0;
+      document.getElementById("expBtn").textContent = expOn ? "🧩 تجميع الأجزاء" : "🔀 تفكيك الأجزاء";
+      applyGap(sl.value);
+    }
+
+    function applyGap(v) {
+      const gap = Math.round((v / 100) * 28);
+      document.querySelectorAll(".exp-node").forEach((node, idx) => {
+        const dir = idx === 0 ? -1 : (idx === 2 ? 1 : 0);
+        node.setAttribute("transform", `translate(0, ${dir * gap})`);
+      });
+    }
+
+    function drawStage() {
+      if (!curAct) return;
+      const st = document.getElementById("stage");
+      const gapVal = expOn ? Number(document.getElementById("expSlider").value) : 70;
+      const gap = Math.round((gapVal / 100) * 28);
+      st.innerHTML = "";
+
+      const svgBox = document.createElement("div");
+      svgBox.style.cssText = "width:100%; max-width:440px; background:#fff; border:2px solid #c4b5fd; border-radius:12px; padding:8px;";
+      const nodesHtml = curAct.parts.map((p, idx) => {
+        const y = 32 + idx * 78;
+        const dir = idx === 0 ? -1 : (idx === 2 ? 1 : 0);
+        const sel = idx === curPart;
+        return `
+          <g class="exp-node" transform="translate(0, ${dir * gap})" style="cursor:pointer; transition:transform 0.25s;" onclick="pickPart(${idx}, true); drawStage();">
+            <rect x="24" y="${y}" width="352" height="54" rx="12"
+                  fill="${sel ? '#fef08a' : '#f5f3ff'}"
+                  stroke="${sel ? '#ea580c' : '#6d28d9'}"
+                  stroke-width="${sel ? '3' : '2'}" />
+            <circle cx="348" cy="${y + 27}" r="16" fill="#6d28d9" />
+            <text x="348" y="${y + 32}" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">${idx + 1}</text>
+            <text x="182" y="${y + 24}" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">${p.i} ${p.n}</text>
+            <text x="182" y="${y + 42}" text-anchor="middle" font-size="10.5" fill="#334155">انقر لعرض جزء التفكيك ومواده وأمثلته</text>
+          </g>
+        `;
+      }).join("");
+
+      svgBox.innerHTML = `<svg viewBox="0 0 400 300" style="width:100%; height:auto; display:block;">${nodesHtml}</svg>`;
+      st.appendChild(svgBox);
+
+      const chips = document.createElement("div");
+      chips.className = "part-chips";
+      curAct.parts.forEach((p, idx) => {
+        const b = document.createElement("button");
+        b.className = "part-chip" + (idx === curPart ? " selected" : "");
+        b.textContent = `${p.i} ${p.t}`;
+        b.onclick = () => { pickPart(idx, true); drawStage(); };
+        chips.appendChild(b);
+      });
+      st.appendChild(chips);
+    }
+
+    function buildSampleButtons(labType) {
+      const list = sampleSets[labType] || sampleSets.state;
+      if (curSampleIdx >= list.length) curSampleIdx = 0;
+      const bar = document.getElementById("sampleBar");
+      bar.innerHTML = "";
+      list.forEach((smp, idx) => {
+        const btn = document.createElement("button");
+        btn.className = "sample-btn" + (idx === curSampleIdx ? " active" : "");
+        btn.textContent = smp.name;
+        btn.onclick = () => {
+          curSampleIdx = idx;
+          buildSampleButtons(labType);
+          renderPracticalLab();
+        };
+        bar.appendChild(btn);
+      });
+    }
+
+    function recordComparison() {
+      const item = curAct.parts[curPart];
+      const list = sampleSets[item.lab] || sampleSets.state;
+      const smp = list[curSampleIdx];
+      comparedRecord = `${smp.name} (${smp.kind})`;
+      document.getElementById("compareStrip").innerHTML =
+        `<strong>المقارنة المثبتة:</strong> ${comparedRecord} — قارنها الآن مع خطوة أو عينة أخرى.`;
+    }
+
+    function renderPracticalLab() {
+      if (!curAct) return;
+      const item = curAct.parts[curPart];
+      const list = sampleSets[item.lab] || sampleSets.state;
+      const smp = list[curSampleIdx];
+      const area = document.getElementById("pracSvgArea");
+      const note = document.getElementById("pracNote");
+      const title = document.getElementById("pracTitle");
+      const extraBox = document.getElementById("extraExamplesBox");
+      const alertBox = document.getElementById("safetyAlertBox");
+
+      extraBox.textContent = pageExamplesText[item.lab] || "";
+      if (safetyAlerts[item.lab]) {
+        alertBox.textContent = safetyAlerts[item.lab];
+        alertBox.style.display = "block";
+      } else {
+        alertBox.textContent = "";
+        alertBox.style.display = "none";
+      }
+
+      if (item.lab === "electric") {
+        const lit = Boolean(smp.cond);
+        title.textContent = "⚡ نشاط ٥: توصيل الكهرباء بين الطرفين (أ، ب) (ص ٥٧)";
+        area.innerHTML = `
+          <svg viewBox="0 0 360 128" style="width:100%; height:auto; display:block; background:#f8fafc; border-radius:10px;">
+            <rect x="308" y="42" width="34" height="44" rx="6" fill="#1e293b" />
+            <text x="325" y="68" text-anchor="middle" font-size="11" fill="#fde047" font-weight="bold">بطارية</text>
+            <polyline points="308,48 250,48" fill="none" stroke="${lit ? '#16a34a' : '#64748b'}" stroke-width="4" />
+            <rect x="115" y="34" width="135" height="28" rx="7" fill="${smp.color}" stroke="#0f172a" stroke-width="2" />
+            <text x="182" y="52" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#fff">${smp.name}</text>
+            <polyline points="115,48 58,48 58,60" fill="none" stroke="${lit ? '#16a34a' : '#64748b'}" stroke-width="4" />
+            <circle cx="58" cy="78" r="18" fill="${lit ? '#fde047' : '#cbd5e1'}" stroke="#0f172a" stroke-width="2.5" />
+            <text x="58" y="82" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0f172a">${lit ? 'مضيء' : 'مطفأ'}</text>
+            <polyline points="76,78 308,78 308,74" fill="none" stroke="${lit ? '#16a34a' : '#64748b'}" stroke-width="4" />
+            <text x="180" y="114" text-anchor="middle" font-size="11" font-weight="bold" fill="${lit ? '#15803d' : '#b91c1c'}">${smp.kind}</text>
+          </svg>
+        `;
+      } else if (item.lab === "heat") {
+        const pct = smp.heat;
+        const barW = Math.round((pct / 100) * 245);
+        const barX = 323 - barW;
+        title.textContent = "🔥 نشاط ٤: توصيل الحرارة في حوض الماء الساخن (ص ٥٦)";
+        area.innerHTML = `
+          <svg viewBox="0 0 360 128" style="width:100%; height:auto; display:block; background:#fff7ed; border-radius:10px;">
+            <path d="M324,92 Q312,62 330,44 Q346,64 334,92 Z" fill="#ea580c" />
+            <text x="332" y="110" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#9a3412">ماء ساخن</text>
+            <rect x="78" y="46" width="245" height="26" rx="7" fill="#e2e8f0" stroke="#334155" stroke-width="2" />
+            <rect x="${barX}" y="46" width="${barW}" height="26" rx="7" fill="#ef4444" opacity="0.88" />
+            <text x="200" y="63" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">${smp.name} — انتقال الحرارة ${pct}%</text>
+            <text x="200" y="96" text-anchor="middle" font-size="11" font-weight="bold" fill="#7c2d12">${smp.kind}</text>
+          </svg>
+        `;
+      } else if (item.lab === "melting") {
+        const barW = Math.round((smp.barPct / 100) * 250);
+        title.textContent = "🌡️ نشاط ٦: القابلية للانصهار — بيانات صفحة ٥٨";
+        area.innerHTML = `
+          <svg viewBox="0 0 360 132" style="width:100%; height:auto; display:block; background:#fff7ed; border-radius:10px;">
+            <text x="180" y="24" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#9a3412">${smp.name} — درجة الانصهار: ${smp.temp} س°</text>
+            <rect x="55" y="38" width="250" height="26" rx="7" fill="#e2e8f0" stroke="#334155" stroke-width="2" />
+            <rect x="55" y="38" width="${barW}" height="26" rx="7" fill="${smp.color}" />
+            <text x="180" y="84" text-anchor="middle" font-size="10" font-weight="bold" fill="#0f172a">الكبريت ١١٣ | الألومنيوم ٦٦٠ | النحاس ١٠٨٤ | الحديد ١٥٣٨ | الكربون ٣٥٤٧ س°</text>
+            <text x="180" y="112" text-anchor="middle" font-size="11" font-weight="bold" fill="#be185d">${smp.kind}</text>
+          </svg>
+        `;
+      } else if (item.lab === "magnetism") {
+        const attr = Boolean(smp.attr);
+        title.textContent = "🧲 نشاط ٧: التمغنط وبرادة الحديد (ص ٥٩–٦٠)";
+        area.innerHTML = `
+          <svg viewBox="0 0 360 128" style="width:100%; height:auto; display:block; background:#eff6ff; border-radius:10px;">
+            <rect x="245" y="38" width="85" height="44" rx="8" fill="#dc2626" stroke="#0f172a" stroke-width="2" />
+            <text x="287" y="64" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">مغناطيس</text>
+            <rect x="35" y="42" width="110" height="36" rx="8" fill="${smp.color}" stroke="#0f172a" stroke-width="2" />
+            <text x="90" y="64" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">${smp.name}</text>
+            <text x="195" y="65" text-anchor="middle" font-size="12" font-weight="bold" fill="${attr ? '#15803d' : '#b91c1c'}">${attr ? 'يجذب ➔' : 'لا يجذب ✕'}</text>
+            <text x="180" y="108" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">${smp.kind}</text>
+          </svg>
+        `;
+      } else if (item.lab === "luster") {
+        const shiny = smp.mode === "shiny";
+        title.textContent = "✨ نشاط ٢: ليس كل ما يلمع ذهباً (ص ٥٢)";
+        area.innerHTML = `
+          <svg viewBox="0 0 360 128" style="width:100%; height:auto; display:block; background:#fefce8; border-radius:10px;">
+            <rect x="75" y="34" width="210" height="46" rx="10" fill="${smp.color}" stroke="#0f172a" stroke-width="2" />
+            <text x="180" y="61" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">${shiny ? '✨ لمعان وبريق بعد الصنفرة ✨' : 'مقارنة المظهر بعد الصنفرة'}</text>
+            <text x="180" y="106" text-anchor="middle" font-size="11" font-weight="bold" fill="#854d0e">${smp.name} — ${smp.kind}</text>
+          </svg>
+        `;
+      } else if (item.lab === "malleable") {
+        const bend = smp.mode === "bend";
+        title.textContent = "🔨 نشاط ٣: طرق وسحب وثني (ص ٥٣–٥٥)";
+        area.innerHTML = `
+          <svg viewBox="0 0 360 128" style="width:100%; height:auto; display:block; background:#f5f3ff; border-radius:10px;">
+            ${bend
+              ? `<path d="M85,78 L160,78 Q210,78 245,42" fill="none" stroke="${smp.color}" stroke-width="10" stroke-linecap="round" />`
+              : `<rect x="95" y="54" width="45" height="20" rx="4" fill="${smp.color}" /><rect x="155" y="54" width="45" height="20" rx="4" fill="${smp.color}" /><rect x="215" y="54" width="45" height="20" rx="4" fill="${smp.color}" />`
+            }
+            <text x="180" y="110" text-anchor="middle" font-size="11" font-weight="bold" fill="#4c1d95">${smp.name} — ${smp.kind}</text>
+          </svg>
+        `;
+      } else if (item.lab === "act8_rust") {
+        title.textContent = "⛓️ مختبر نشاط ٨: تكوين مواد جديدة (الصدأ والأنابيب وحماية العناصر — ص ٦١–٦٢)";
+        if (smp.stage === "rust_mag") {
+          area.innerHTML = `
+            <svg viewBox="0 0 360 128" style="width:100%; height:auto; display:block; background:#fef3c7; border-radius:10px;">
+              <rect x="235" y="36" width="95" height="44" rx="8" fill="#dc2626" stroke="#0f172a" stroke-width="2" />
+              <text x="282" y="62" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">مغناطيس</text>
+              <rect x="35" y="36" width="125" height="44" rx="8" fill="#b45309" stroke="#0f172a" stroke-width="2" />
+              <text x="97" y="55" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">مادة الصدأ</text>
+              <text x="97" y="71" text-anchor="middle" font-size="9.5" fill="#fef3c7">مادة جديدة مختلفة</text>
+              <text x="195" y="63" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">تغيّر كيميائي</text>
+              <text x="180" y="108" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#78350f">${smp.kind}</text>
+            </svg>
+          `;
+        } else if (smp.stage === "rust_tubes") {
+          area.innerHTML = `
+            <svg viewBox="0 0 360 128" style="width:100%; height:auto; display:block; background:#eff6ff; border-radius:10px;">
+              <rect x="255" y="26" width="66" height="68" rx="10" fill="#fff" stroke="#1d4ed8" stroke-width="2" />
+              <text x="288" y="56" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e3a8a">أنبوب ١</text>
+              <text x="288" y="74" text-anchor="middle" font-size="9.5" fill="#334155">مسمار + ماء</text>
+              <rect x="147" y="26" width="66" height="68" rx="10" fill="#fff" stroke="#1d4ed8" stroke-width="2" />
+              <text x="180" y="56" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e3a8a">أنبوب ٢</text>
+              <text x="180" y="74" text-anchor="middle" font-size="9.5" fill="#334155">مسمار + ماء</text>
+              <rect x="39" y="26" width="66" height="68" rx="10" fill="#fff" stroke="#1d4ed8" stroke-width="2" />
+              <text x="72" y="56" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e3a8a">أنبوب ٣</text>
+              <text x="72" y="74" text-anchor="middle" font-size="9.5" fill="#334155">مسمار + ماء</text>
+              <text x="180" y="112" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1e3a8a">${smp.kind}</text>
+            </svg>
+          `;
+        } else {
+          area.innerHTML = `
+            <svg viewBox="0 0 360 128" style="width:100%; height:auto; display:block; background:#ecfdf5; border-radius:10px;">
+              <rect x="65" y="34" width="230" height="48" rx="10" fill="#0f766e" stroke="#0f172a" stroke-width="2" />
+              <text x="180" y="55" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#fff">حماية العناصر من التآكل</text>
+              <text x="180" y="73" text-anchor="middle" font-size="10" fill="#ccfbf1">عزلها عن الهواء والرطوبة (طلاء / تزييت)</text>
+              <text x="180" y="108" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0f766e">${smp.kind}</text>
+            </svg>
+          `;
+        }
+      } else if (item.lab === "act9_copper") {
+        title.textContent = "🪙 مختبر نشاط ٩: النحاس اللامع (ملح وخل أو حامض الليمون وتجفيف — ص ٦٢)";
+        if (smp.stage === "cop_start") {
+          area.innerHTML = `
+            <svg viewBox="0 0 360 128" style="width:100%; height:auto; display:block; background:#fef3c7; border-radius:10px;">
+              <ellipse cx="180" cy="60" rx="68" ry="28" fill="#b45309" stroke="#0f172a" stroke-width="2" />
+              <text x="180" y="64" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">عملة نحاسية تغيّر لونها</text>
+              <text x="180" y="110" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#92400e">${smp.kind}</text>
+            </svg>
+          `;
+        } else if (smp.stage === "cop_bath") {
+          area.innerHTML = `
+            <svg viewBox="0 0 360 128" style="width:100%; height:auto; display:block; background:#fff7ed; border-radius:10px;">
+              <rect x="195" y="34" width="135" height="54" rx="10" fill="#ffedd5" stroke="#ea580c" stroke-width="2" />
+              <text x="262" y="57" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#9a3412">كأس المحلول</text>
+              <text x="262" y="75" text-anchor="middle" font-size="9.5" fill="#7c2d12">ملح وخل أو حامض الليمون</text>
+              <text x="177" y="66" text-anchor="middle" font-size="18" font-weight="bold" fill="#ea580c">➔</text>
+              <rect x="25" y="34" width="135" height="54" rx="10" fill="#fed7aa" stroke="#0f172a" stroke-width="2" />
+              <text x="92" y="64" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0f172a">مراقبة التغيرات</text>
+              <text x="180" y="110" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#9a3412">${smp.kind}</text>
+            </svg>
+          `;
+        } else {
+          area.innerHTML = `
+            <svg viewBox="0 0 360 128" style="width:100%; height:auto; display:block; background:#ecfdf5; border-radius:10px;">
+              <rect x="65" y="34" width="230" height="48" rx="10" fill="#0f766e" stroke="#0f172a" stroke-width="2" />
+              <text x="180" y="55" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#fff">إخراج العملة وتجفيفها في الهواء</text>
+              <text x="180" y="73" text-anchor="middle" font-size="10" fill="#ccfbf1">تسجيل التغيرات بعد التجفيف وكيف عرفناها</text>
+              <text x="180" y="110" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0f766e">${smp.kind}</text>
+            </svg>
+          `;
+        }
+      } else if (item.lab === "act10_vinegar") {
+        title.textContent = "🎈 مختبر نشاط ١٠: الخل ومسحوق الخبيز (بايكربونات الصوديوم — ص ٦٣)";
+        if (smp.stage === "vin_flask") {
+          area.innerHTML = `
+            <svg viewBox="0 0 360 128" style="width:100%; height:auto; display:block; background:#eff6ff; border-radius:10px;">
+              <rect x="85" y="32" width="190" height="56" rx="10" fill="#bae6fd" stroke="#0284c7" stroke-width="2" />
+              <text x="180" y="57" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0c4a6e">القارورة + ٢٠ سم³ خل طعام</text>
+              <text x="180" y="75" text-anchor="middle" font-size="10" fill="#0369a1">تجهيز خل الطعام في القارورة</text>
+              <text x="180" y="110" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0369a1">${smp.kind}</text>
+            </svg>
+          `;
+        } else if (smp.stage === "vin_balloon") {
+          area.innerHTML = `
+            <svg viewBox="0 0 360 128" style="width:100%; height:auto; display:block; background:#f5f3ff; border-radius:10px;">
+              <rect x="65" y="32" width="230" height="56" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2" />
+              <text x="180" y="57" text-anchor="middle" font-size="11" font-weight="bold" fill="#4c1d95">ملعقتان صغيرتان مسحوق خبيز في بالون</text>
+              <text x="180" y="75" text-anchor="middle" font-size="10" fill="#5b21b6">بايكربونات الصوديوم مثبت على الفوهة</text>
+              <text x="180" y="110" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c1d95">${smp.kind}</text>
+            </svg>
+          `;
+        } else {
+          area.innerHTML = `
+            <svg viewBox="0 0 360 128" style="width:100%; height:auto; display:block; background:#ecfdf5; border-radius:10px;">
+              <rect x="202" y="34" width="140" height="54" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2" />
+              <text x="272" y="57" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0f172a">خل + مسحوق الخبيز</text>
+              <text x="272" y="75" text-anchor="middle" font-size="9.5" fill="#1e3a8a">إسقاط تدريجي من البالون</text>
+              <text x="184" y="66" text-anchor="middle" font-size="18" font-weight="bold" fill="#6d28d9">➔</text>
+              <rect x="18" y="34" width="150" height="54" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="2.5" />
+              <text x="93" y="57" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0f172a">صفات جديدة متغيرة</text>
+              <text x="93" y="75" text-anchor="middle" font-size="9.5" fill="#14532d">تغيرات كيميائية</text>
+              <text x="180" y="110" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0f766e">${smp.kind}</text>
+            </svg>
+          `;
+        }
+      } else {
+        const stMode = smp.state;
+        title.textContent = "🧱 نشاط ١: حالة العنصر في الظروف الطبيعية (ص ٥١)";
+        area.innerHTML = `
+          <svg viewBox="0 0 360 128" style="width:100%; height:auto; display:block; background:#ecfdf5; border-radius:10px;">
+            <rect x="65" y="22" width="230" height="72" rx="12" fill="#ffffff" stroke="#0f766e" stroke-width="2" />
+            ${stMode === "solid" ? `<rect x="145" y="38" width="70" height="40" rx="6" fill="#7c3aed" />` : ""}
+            ${stMode === "liquid" ? `<rect x="75" y="62" width="210" height="24" rx="5" fill="#0284c7" />` : ""}
+            ${stMode === "gas" ? `<circle cx="115" cy="46" r="7" fill="#0d9488"/><circle cx="180" cy="42" r="7" fill="#0d9488"/><circle cx="245" cy="50" r="7" fill="#0d9488"/><circle cx="150" cy="74" r="7" fill="#0d9488"/><circle cx="220" cy="76" r="7" fill="#0d9488"/>` : ""}
+            <text x="180" y="113" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f766e">${smp.name} — ${smp.kind}</text>
+          </svg>
+        `;
+      }
+
+      note.textContent = `${smp.name} (${smp.kind}): ${smp.detail}`;
+    }
+
+    function pickPart(idx, doSpeak) {
+      if (!curAct) return;
+      curPart = idx;
+      const item = curAct.parts[idx];
+      curSampleIdx = item.defaultSample || 0;
+      document.querySelectorAll(".part-chip").forEach((el, i) => el.classList.toggle("selected", i === idx));
+      document.getElementById("iTitle").textContent = `${item.t}: ${item.n}`;
+      document.getElementById("iDesc").textContent = item.d;
+      buildSampleButtons(item.lab);
+      renderPracticalLab();
+      if (doSpeak) speak(`${item.n}. ${item.d}`);
+    }
+
+    function speak(txt) {
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(txt);
+      u.lang = "ar-SA"; u.rate = 0.95;
+      window.speechSynthesis.speak(u);
+    }
+
+    function stopSp() {
+      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+      document.querySelectorAll(".ch").forEach(c => c.classList.remove("talk"));
+    }
+
+    function showSc() {
+      if (!curAct) return;
+      const sc = curAct.scenes[scIdx];
+      document.getElementById("scTitle").textContent = sc.t;
+      document.getElementById("scSay").textContent = sc.s;
+      document.querySelectorAll(".ch").forEach(c => c.classList.remove("talk"));
+      document.getElementById(sc.c).classList.add("talk");
+    }
+
+    function playSc() { showSc(); speak(curAct.scenes[scIdx].s); }
+    function stepSc(d) { scIdx = (scIdx + d + curAct.scenes.length) % curAct.scenes.length; playSc(); }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      buildIndex();
+      buildSummary();
+      buildMasterAnswers();
+      syncPrintFields();
+    });
+    buildIndex();
+    buildSummary();
+    buildMasterAnswers();
+  </script>
+</body>
+</html>
